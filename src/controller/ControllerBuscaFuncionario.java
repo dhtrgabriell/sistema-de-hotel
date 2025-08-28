@@ -43,7 +43,7 @@ public class ControllerBuscaFuncionario implements ActionListener {
                     funcionarioAtual.getId(),
                     funcionarioAtual.getNome(),
                     funcionarioAtual.getCpf(),
-                    funcionarioAtual.getFone1(),
+                    funcionarioAtual.getFone(),
                     funcionarioAtual.getEmail()
                 // Adicione aqui os outros campos que você quer exibir
                 });
@@ -80,7 +80,7 @@ public class ControllerBuscaFuncionario implements ActionListener {
                         funcionarioAtual.getId(),
                         funcionarioAtual.getNome(),
                         funcionarioAtual.getCpf(),
-                        funcionarioAtual.getFone1(),
+                        funcionarioAtual.getFone(),
                         funcionarioAtual.getEmail()
                     });
                 }

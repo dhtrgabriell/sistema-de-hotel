@@ -4,7 +4,7 @@ public class Pessoa {
 
     private int id;
     private String nome;
-    private String fone1;
+    private String fone;
     private String fone2;
     private String email;
     private String cep;
@@ -21,10 +21,10 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String fone1, String fone2, String email, String cep, String logradouro, String bairro, String cidade, String complemento, String dataCadastro, String cpf, String rg, String obs, char status) {
+    public Pessoa(int id, String nome, String fone, String fone2, String email, String cep, String logradouro, String bairro, String cidade, String complemento, String dataCadastro, String cpf, String rg, String obs, char status) {
         this.id = id;
         this.nome = nome;
-        this.fone1 = fone1;
+        this.fone = fone;
         this.fone2 = fone2;
         this.email = email;
         this.cep = cep;
@@ -54,12 +54,12 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getFone1() {
-        return fone1;
+    public String getFone() {
+        return fone;
     }
 
-    public void setFone1(String fone1) {
-        this.fone1 = fone1;
+    public void setFone1(String fone) {
+        this.fone = fone;
     }
 
     public String getFone2() {
@@ -168,7 +168,7 @@ public class Pessoa {
     public String toString() {
         return  "id      = " + this.id + 
                 "\nnome   = " + this.nome +
-                "\nfone1  = " + this.fone1 +
+                "\nfone  = " + this.fone +
                 "\nfone2  = " + this.fone2 +
                 "\nemail  = " + this.email +
                 "\nrg     = " + this.rg +

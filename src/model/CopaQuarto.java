@@ -1,8 +1,6 @@
 package model;
 
 import java.security.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CopaQuarto {
     
