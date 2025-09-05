@@ -68,7 +68,7 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
             pstm.setInt(1, id);
             rst = pstm.executeQuery();
 
-            while(!rst.next()){
+            while(rst.next()){
 
                 hospede.setId(rst.getInt("id"));
                 hospede.setNome(rst.getString("nome"));
@@ -118,7 +118,7 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
             pstm.setString(1, "%" + valor + "%");;
             rst = pstm.executeQuery();
 
-            while(!rst.next()){
+            while(rst.next()){
                 Hospede hospede = new Hospede();
 
                 hospede.setId(rst.getInt("id"));
@@ -156,7 +156,26 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
     @Override
     public void Update(Hospede objeto) {
         
-        String sqlInstrucao = "Update hospede set nome = ?, fone = ?, fone2 = ?, email = ?, cep = ?, logradouro = ?, bairro = ?, cidade = ?, complemento = ?, data_cadastro = ?, cpf = ?, rg = ?, obs = ?, status = ?, razao_social = ?, cnpj = ?, inscricao_estadual = ?, contato = ? from hospede where id = ?";
+        String sqlInstrucao = "Update hospede set "
+                + "nome = ?, "
+                + "fone = ?, "
+                + "fone2 = ?, "
+                + "email = ?, "
+                + "cep = ?, "
+                + "logradouro = ?, "
+                + "bairro = ?, "
+                + "cidade = ?, "
+                + "complemento = ?, "
+                + "data_cadastro = ?, "
+                + "cpf = ?, "
+                + "rg = ?, "
+                + "obs = ?, "
+                + "status = ?, "
+                + "razao_social = ?, "
+                + "cnpj = ?, "
+                + "inscricao_estadual = ?, "
+                + "contato = ? "
+                + "from hospede where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
