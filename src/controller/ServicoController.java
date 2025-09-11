@@ -1,6 +1,6 @@
 package controller;
 
-import model.Servico;
+import models.Servico;
 import java.util.ArrayList;
 
 public class ServicoController {

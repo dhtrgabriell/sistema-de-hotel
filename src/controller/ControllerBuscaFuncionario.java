@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import model.Funcionario;
+import models.Funcionario;
 import view.*;
 
 public class ControllerBuscaFuncionario implements ActionListener {

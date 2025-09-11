@@ -1,4 +1,4 @@
-package model;
+package models;
 public class Funcionario extends Pessoa{
    
     private String usuario;

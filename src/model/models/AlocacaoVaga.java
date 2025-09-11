@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class AlocacaoVaga {
     private int id;

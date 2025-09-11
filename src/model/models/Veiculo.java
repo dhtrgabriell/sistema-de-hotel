@@ -1,7 +1,12 @@
-package model;
+package models;
 
 public class Veiculo {
+    private int id;
+
     private String placa;
+    private String cor;
+    private char status;
+
     private Modelo modelo;
     private Marca marca;
 
@@ -11,8 +16,13 @@ public class Veiculo {
 
     public Veiculo() {}
 
-    public Veiculo(String placa, Modelo modelo, Marca marca, Funcionario funcionario, Fornecedor fornecedor, Hospede hospede) {
+    public Veiculo(int id, String placa, String cor, char status, Modelo modelo, Marca marca, Funcionario funcionario, Fornecedor fornecedor, Hospede hospede) {
+        this.id = id;
+
         this.placa = placa;
+        this.cor = cor;
+        this.status = status;
+
         this.modelo = modelo;
         this.marca = marca;
 
@@ -67,6 +77,30 @@ public class Veiculo {
 
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     

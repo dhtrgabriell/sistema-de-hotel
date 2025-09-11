@@ -1,7 +1,7 @@
-package model.DAO;
+package DAO;
 
 import java.util.List;
-import model.Quarto;
+import models.Quarto;
 
 public class QuartoDAO implements InterfaceDAO<Quarto>{
 

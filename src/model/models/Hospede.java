@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class Hospede extends Pessoa{
     private String razaoSocial;

@@ -1,7 +1,7 @@
-package model.DAO;
+package DAO;
 
 import java.util.List;
-import model.Veiculo;
+import models.Veiculo;
 
 public class ModeloDAO implements InterfaceDAO<Veiculo>{
 

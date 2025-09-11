@@ -1,7 +1,7 @@
-package model.DAO;
+package DAO;
 
 import java.util.List;
-import model.Marca;
+import models.Marca;
 
 public class MarcaDAO implements InterfaceDAO<Marca>{
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import model.Hospede;
+import models.Hospede;
 import view.TelaBuscaHospede;
 
 public class ControllerBuscaHospede implements ActionListener {

@@ -1,4 +1,4 @@
-package model;
+package models;
 
 public class CheckHospede {
     private int id;

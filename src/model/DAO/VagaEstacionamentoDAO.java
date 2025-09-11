@@ -1,7 +1,7 @@
-package model.DAO;
+package DAO;
 
 import java.util.List;
-import model.VagaEstacionamento;
+import models.VagaEstacionamento;
 
 public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento>{
 

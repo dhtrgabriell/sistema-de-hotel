@@ -1,4 +1,4 @@
-package model;
+package models;
 public class Triangulo {
     private float base;
     private float altura;

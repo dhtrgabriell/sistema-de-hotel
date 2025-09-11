@@ -1,8 +1,8 @@
 package service;
 
 import java.util.List;
-import model.DAO.HospedeDAO;
-import model.Hospede;
+import DAO.HospedeDAO;
+import models.Hospede;
 
 
 public class HospedeService {

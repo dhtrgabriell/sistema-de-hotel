@@ -1,4 +1,4 @@
-package model.DAO;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Funcionario;
+import models.Funcionario;
 
 public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
 

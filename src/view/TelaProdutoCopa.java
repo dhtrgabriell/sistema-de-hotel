@@ -1,7 +1,7 @@
 package view;
 
 import javax.swing.*;
-import model.ProdutoCopa;
+import models.ProdutoCopa;
 import controller.ProdutoCopaController;
 
 public class TelaProdutoCopa extends JFrame {

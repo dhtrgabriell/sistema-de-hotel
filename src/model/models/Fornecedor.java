@@ -1,4 +1,4 @@
-package model;
+package models;
 public class Fornecedor extends Pessoa{
     
     private String razaoSocial;

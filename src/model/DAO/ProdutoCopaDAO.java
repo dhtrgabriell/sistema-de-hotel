@@ -1,7 +1,7 @@
-package model.DAO;
+package DAO;
 
 import java.util.List;
-import model.ProdutoCopa;
+import models.ProdutoCopa;
 
 public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa>{
 
