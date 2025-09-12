@@ -29,11 +29,11 @@ public class ControllerBuscaHospede implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
 
         if (evento.getSource() == this.telaBuscaHospede.getjButtonCarregar()) {
-            JOptionPane.showMessageDialog(null, "Botão Carregar Pressionado...");
             if (this.telaBuscaHospede.getjTableDados().getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Errrrooooooouuu. \nNão Existem Dados Selecionados!");
             } else {
-                JOptionPane.showMessageDialog(null, "Carregando Dados para Edição....");
+                ControllerCadHospede.codigo = (int) this.telaBuscaHospede.getjTableDados().getValueAt(this.telaBuscaHospede.getjTableDados().getSelectedRow(), 0);
+                this.telaBuscaHospede.dispose();
             }
         } else if (evento.getSource() == this.telaBuscaHospede.getjButtonFiltar()) {
             JOptionPane.showMessageDialog(null, "Botão Filtrar Pressionado...");
