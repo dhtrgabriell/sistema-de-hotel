@@ -1,19 +1,61 @@
 package models;
 
 public class VagaEstacionamento {
-    private int numero;
-    private boolean ocupada;
+    private int id;
+
+    private String descricao;
+    private String obs;
+    private char status;
+    private float metragemVaga;
 
     public VagaEstacionamento() {}
 
-    public VagaEstacionamento(int numero, boolean ocupada) {
-        this.numero = numero;
-        this.ocupada = ocupada;
+    public VagaEstacionamento(int id, String descricao, String obs, char status, float metragemVaga) {
+        this.id = id;
+        this.descricao = descricao;
+        this.obs = obs;
+        this.status = status;
+        this.metragemVaga = metragemVaga;
     }
 
-    public int getNumero() { return numero; }
-    public void setNumero(int numero) { this.numero = numero; }
+    public int getId() {
+        return id;
+    }
 
-    public boolean isOcupada() { return ocupada; }
-    public void setOcupada(boolean ocupada) { this.ocupada = ocupada; }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
+
+    public double getMetragemVaga() {
+        return metragemVaga;
+    }
+
+    public void setMetragemVaga(float metragemVaga) {
+        this.metragemVaga = metragemVaga;
+    }
+    
 }

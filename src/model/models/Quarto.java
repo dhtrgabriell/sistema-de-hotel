@@ -1,24 +1,102 @@
 package models;
 
 public class Quarto {
-    private int numero;
-    private String tipo;
-    private boolean ocupado;
+    private int id;
+    
+    private String descricao;
+    private int capacidadeHospedes;
+    private float metragem;
+    private String identificacao;
+    private int andar;
+    private boolean flagAnimais;
+    private String obs;
+    private char status;
 
     public Quarto() {}
 
-    public Quarto(int numero, String tipo, boolean ocupado) {
-        this.numero = numero;
-        this.tipo = tipo;
-        this.ocupado = ocupado;
+    public Quarto(int id, String descricao, int capacidadeHospedes, float metragem, String identificacao, int andar,
+            boolean flagAnimais, String obs, char status) {
+        this.id = id;
+        this.descricao = descricao;
+        this.capacidadeHospedes = capacidadeHospedes;
+        this.metragem = metragem;
+        this.identificacao = identificacao;
+        this.andar = andar;
+        this.flagAnimais = flagAnimais;
+        this.obs = obs;
+        this.status = status;
     }
 
-    public int getNumero() { return numero; }
-    public void setNumero(int numero) { this.numero = numero; }
+    public int getId() {
+        return id;
+    }
 
-    public String getTipo() { return tipo; }
-    public void setTipo(String tipo) { this.tipo = tipo; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public boolean isOcupado() { return ocupado; }
-    public void setOcupado(boolean ocupado) { this.ocupado = ocupado; }
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public int getCapacidadeHospedes() {
+        return capacidadeHospedes;
+    }
+
+    public void setCapacidadeHospedes(int capacidadeHospedes) {
+        this.capacidadeHospedes = capacidadeHospedes;
+    }
+
+    public float getMetragem() {
+        return metragem;
+    }
+
+    public void setMetragem(float metragem) {
+        this.metragem = metragem;
+    }
+
+    public String getIdentificacao() {
+        return identificacao;
+    }
+
+    public void setIdentificacao(String identificacao) {
+        this.identificacao = identificacao;
+    }
+
+    public int getAndar() {
+        return andar;
+    }
+
+    public void setAndar(int andar) {
+        this.andar = andar;
+    }
+
+    public boolean isFlagAnimais() {
+        return flagAnimais;
+    }
+
+    public void setFlagAnimais(boolean flagAnimais) {
+        this.flagAnimais = flagAnimais;
+    }
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
+
 }
