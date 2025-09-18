@@ -1,6 +1,6 @@
 package controller;
 
-import models.Hospede;
+import model.Hospede;
 import java.util.ArrayList;
 
 public class HospedeController {

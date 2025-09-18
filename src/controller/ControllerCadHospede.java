@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import models.Hospede;
+import model.Hospede;
 import view.TelaBuscaHospede;
 import view.TelaCadastroHospede;
 

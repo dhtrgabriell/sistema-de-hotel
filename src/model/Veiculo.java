@@ -1,4 +1,6 @@
-package models;
+package model;
+
+import model.Hospede;
 
 public class Veiculo {
     private int id;
@@ -8,7 +10,6 @@ public class Veiculo {
     private char status;
 
     private Modelo modelo;
-    private Marca marca;
 
     private Funcionario funcionario;
     private Fornecedor fornecedor;
@@ -16,7 +17,7 @@ public class Veiculo {
 
     public Veiculo() {}
 
-    public Veiculo(int id, String placa, String cor, char status, Modelo modelo, Marca marca, Funcionario funcionario, Fornecedor fornecedor, Hospede hospede) {
+    public Veiculo(int id, String placa, String cor, char status, Modelo modelo, Funcionario funcionario, Fornecedor fornecedor, Hospede hospede) {
         this.id = id;
 
         this.placa = placa;
@@ -24,7 +25,6 @@ public class Veiculo {
         this.status = status;
 
         this.modelo = modelo;
-        this.marca = marca;
 
         this.funcionario = funcionario;
         this.fornecedor = fornecedor;
@@ -45,14 +45,6 @@ public class Veiculo {
     
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
-    }
-
-    public Marca getMarca() {
-        return marca;
-    }
-    
-    public void setMarca(Marca marca) {
-        this.marca = marca;
     }
 
     public Funcionario getFuncionario() {

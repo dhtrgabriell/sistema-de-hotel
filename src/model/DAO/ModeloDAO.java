@@ -1,4 +1,4 @@
-package DAO;
+package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Marca;
-import models.Modelo;
+import model.Marca;
+import model.Modelo;
 
 public class ModeloDAO implements InterfaceDAO<Modelo>{
 

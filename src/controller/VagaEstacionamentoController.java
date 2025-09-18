@@ -1,6 +1,6 @@
 package controller;
 
-import models.VagaEstacionamento;
+import model.VagaEstacionamento;
 import java.util.ArrayList;
 
 public class VagaEstacionamentoController {

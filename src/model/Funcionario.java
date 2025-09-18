@@ -1,4 +1,7 @@
-package models;
+package model;
+
+import model.Pessoa;
+
 public class Funcionario extends Pessoa{
    
     private String usuario;

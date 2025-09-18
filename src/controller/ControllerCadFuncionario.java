@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import models.Funcionario;
+import model.Funcionario;
 import view.*;
 
 /**
@@ -47,7 +47,7 @@ public class ControllerCadFuncionario implements ActionListener {
             telaBusca.setVisible(true);
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
-            Funcionario funcionarioDoFormulario = this.telaCadastroFuncionario.getDadosDoFormulario();
+            Funcionario funcionarioDoFormulario = (Funcionario) this.telaCadastroFuncionario.getDadosDoFormulario();
             if (!funcionarioDoFormulario.getNome().trim().isEmpty()) {
                 this.listaDeFuncionarios.add(funcionarioDoFormulario);
                 javax.swing.JOptionPane.showMessageDialog(null, "Funcionário salvo!");

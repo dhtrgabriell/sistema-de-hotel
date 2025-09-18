@@ -1,6 +1,6 @@
 package controller;
 
-import models.Quarto;
+import model.Quarto;
 import java.util.ArrayList;
 
 public class QuartoController {

@@ -6,7 +6,7 @@
 package view;
 
 import javax.swing.JOptionPane;
-import models.Triangulo;
+import model.Triangulo;
 
 /**
  *

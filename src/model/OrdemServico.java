@@ -1,40 +1,46 @@
-package models;
+package model;
 
 import java.security.Timestamp;
 
-class CheckQuarto {
+public class OrdemServico {
     
     private int id;
+    private Timestamp dataHoraCadastro;
     private Timestamp dataHoraInicio;
-    private Timestamp dataHoraFim;
+    private Timestamp dataHoraTermino;
     private String obs;
     private char status;
     
+    private Servico servico;
     private Quarto quarto;
     private Check check;
-    private ReservaQuarto reservaQuarto;
 
-    public CheckQuarto(int id, Timestamp dataHoraInicio, Timestamp dataHoraFim, String obs, char status, Quarto quarto, Check check, ReservaQuarto reservaQuarto) {
+    public OrdemServico(int id, Timestamp dataHoraCadastro, Timestamp dataHoraInicio, Timestamp dataHoraTermino, String obs, char status, Servico servico, Quarto quarto, Check check) {
         this.id = id;
+        this.dataHoraCadastro = dataHoraCadastro;
         this.dataHoraInicio = dataHoraInicio;
-        this.dataHoraFim = dataHoraFim;
+        this.dataHoraTermino = dataHoraTermino;
         this.obs = obs;
         this.status = status;
+        this.servico = servico;
         this.quarto = quarto;
         this.check = check;
-        this.reservaQuarto = reservaQuarto;
     }
 
     public int getId() {
         return id;
     }
 
+    public Timestamp getDataHoraCadastro() {
+        return dataHoraCadastro;
+    }
+
     public Timestamp getDataHoraInicio() {
         return dataHoraInicio;
     }
 
-    public Timestamp getDataHoraFim() {
-        return dataHoraFim;
+    public Timestamp getDataHoraTermino() {
+        return dataHoraTermino;
     }
 
     public String getObs() {
@@ -45,6 +51,10 @@ class CheckQuarto {
         return status;
     }
 
+    public Servico getServico() {
+        return servico;
+    }
+
     public Quarto getQuarto() {
         return quarto;
     }
@@ -53,20 +63,20 @@ class CheckQuarto {
         return check;
     }
 
-    public ReservaQuarto getReservaQuarto() {
-        return reservaQuarto;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setDataHoraCadastro(Timestamp dataHoraCadastro) {
+        this.dataHoraCadastro = dataHoraCadastro;
     }
 
     public void setDataHoraInicio(Timestamp dataHoraInicio) {
         this.dataHoraInicio = dataHoraInicio;
     }
 
-    public void setDataHoraFim(Timestamp dataHoraFim) {
-        this.dataHoraFim = dataHoraFim;
+    public void setDataHoraTermino(Timestamp dataHoraTermino) {
+        this.dataHoraTermino = dataHoraTermino;
     }
 
     public void setObs(String obs) {
@@ -77,6 +87,10 @@ class CheckQuarto {
         this.status = status;
     }
 
+    public void setServico(Servico servico) {
+        this.servico = servico;
+    }
+
     public void setQuarto(Quarto quarto) {
         this.quarto = quarto;
     }
@@ -84,21 +98,7 @@ class CheckQuarto {
     public void setCheck(Check check) {
         this.check = check;
     }
-
-    public void setReservaQuarto(ReservaQuarto reservaQuarto) {
-        this.reservaQuarto = reservaQuarto;
-    }
-
-    @Override
-    public String toString() {
-        return "CheckQuarto: " +
-                "\nQuarto: " + quarto +
-                "\nCheck: " + check +
-                "\nReserva de Quarto: " + reservaQuarto + 
-                "\nData/Hora Inicio: " + dataHoraInicio +
-                "\nData/Hora Fim: " + dataHoraFim +
-                "\nObservação: " + obs +
-                "\nStatus: " + status;
-    }
+    
+    
     
 }

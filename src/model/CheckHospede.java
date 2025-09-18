@@ -1,4 +1,6 @@
-package models;
+package model;
+
+import model.Hospede;
 
 public class CheckHospede {
     private int id;

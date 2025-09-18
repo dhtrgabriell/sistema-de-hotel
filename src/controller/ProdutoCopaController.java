@@ -1,6 +1,6 @@
 package controller;
 
-import models.ProdutoCopa;
+import model.ProdutoCopa;
 import java.util.ArrayList;
 
 public class ProdutoCopaController {

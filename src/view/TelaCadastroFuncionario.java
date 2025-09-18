@@ -7,7 +7,7 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import models.Funcionario;
+import model.Funcionario;
 /**
  *
  * @author house

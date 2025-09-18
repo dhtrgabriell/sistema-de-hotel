@@ -1,7 +1,7 @@
-package DAO;
+package model.DAO;
 
 import java.util.List;
-import models.Servico;
+import model.Servico;
 
 public class ServicoDAO implements InterfaceDAO<Servico>{
 

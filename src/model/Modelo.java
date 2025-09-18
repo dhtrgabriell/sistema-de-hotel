@@ -1,18 +1,21 @@
-package models;
+package model;
 
-public class Marca {
+public class Modelo {
 
     private int id;
     private String descricao;
     private char status;
 
-    public Marca() {
+    private Marca marca;
+
+    public Modelo() {
     }
 
-    public Marca(int id, String descricao, char status) {
+    public Modelo(int id, String descricao, char status, Marca marca) {
         this.id = id;
         this.descricao = descricao;
         this.status = status;
+        this.marca = marca;
     }
 
     public int getId() {
@@ -31,23 +34,32 @@ public class Marca {
         this.descricao = descricao;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
     public char getStatus() {
         return status;
     }
 
     public void setStatus(char status) {
-        if ( (status == 'A') || (status == 'C') || (status == 'a') || (status == 'c') ) {
+        if ((status == 'A') || (status == 'C') || (status == 'a') || (status == 'c')) {
             this.status = status;
-        }else {
+        } else {
             this.status = 'A';
         }
     }
 
     @Override
     public String toString() {
-        return    "id    = " + this.getId()
-                + "Desc. = " + this.getDescricao()
-                + "Status= " + this.getStatus();
+        return "id     = " + this.getId()
+                + "\nDescr. = " + this.getDescricao()
+                + "\nMarca  = " + this.getMarca().getDescricao()
+                + "\nStatus = " + this.getStatus();
     }
 
 }

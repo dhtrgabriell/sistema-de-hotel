@@ -1,4 +1,4 @@
-package DAO;
+package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Fornecedor;
-import models.Funcionario;
-import models.Hospede;
-import models.Modelo;
-import models.Veiculo;
+import model.Fornecedor;
+import model.Funcionario;
+import model.Hospede;
+import model.Modelo;
+import model.Veiculo;
 
 public class VeiculoDAO implements InterfaceDAO<Veiculo>{
 

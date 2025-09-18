@@ -1,11 +1,11 @@
-package DAO;
+package model.DAO;
 
+import model.Fornecedor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import models.Fornecedor;
 import java.sql.SQLException;
 
 public class FornecedorDAO implements InterfaceDAO<Fornecedor>{

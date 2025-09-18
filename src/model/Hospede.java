@@ -1,4 +1,6 @@
-package models;
+package model;
+
+import model.Pessoa;
 
 public class Hospede extends Pessoa{
     private String razaoSocial;
@@ -6,19 +8,21 @@ public class Hospede extends Pessoa{
     private String inscricaoEstadual;
     private String contato;
     private char status;
+    private char sexo;
 
     public Hospede() {}
 
     public Hospede(int id, String nome, String fone, String fone2, String email, String cep, String logradouro,
             String bairro, String cidade, String complemento, String dataCadastro, String cpf, String rg, String obs,
-            char status, String razaoSocial, String cnpj, String inscricaoEstadual, String contato, char status2) {
+            char status, char sexo, String razaoSocial, String cnpj, String inscricaoEstadual, String contato) {
         super(id, nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, dataCadastro, cpf, rg, obs,
                 status);
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.inscricaoEstadual = inscricaoEstadual;
         this.contato = contato;
-        status = status2;
+        this.status = status;
+        this.sexo = sexo;
     }
 
     public String getRazaoSocial() {
@@ -61,4 +65,11 @@ public class Hospede extends Pessoa{
         this.status = status;
     }
 
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
 }

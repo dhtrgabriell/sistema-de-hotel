@@ -1,6 +1,6 @@
 package controller;
 
-import models.Veiculo;
+import model.Veiculo;
 import java.util.ArrayList;
 
 public class VeiculoController {
