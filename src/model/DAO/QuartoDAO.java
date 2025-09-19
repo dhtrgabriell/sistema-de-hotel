@@ -12,7 +12,14 @@ public class QuartoDAO implements InterfaceDAO<Quarto>{
 
     @Override
     public void Create(Quarto objeto) {
-        String sqlInstrucao = "Insert into quarto(descricao, capacidade_hospedes, metragem, identificacao, andar, flag_animais, obs, status) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlInstrucao = "Insert into quarto"
+                + "(descricao, "
+                + "capacidade_hospedes, "
+                + "metragem, identificacao, "
+                + "andar, "
+                + "flag_animais, "
+                + "obs, status) "
+                + "values (?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -41,7 +48,17 @@ public class QuartoDAO implements InterfaceDAO<Quarto>{
 
     @Override
     public Quarto Retrieve(int id) {
-        String sqlInstrucao = "Select id, descricao, capacidade_hospedes, metragem, identificacao, andar, flag_animais, obs, status from quarto where id = ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "descricao, "
+                + "capacidade_hospedes, "
+                + "metragem, "
+                + "identificacao, "
+                + "andar, "
+                + "flag_animais, "
+                + "obs, "
+                + "status "
+                + "from quarto where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -81,7 +98,17 @@ public class QuartoDAO implements InterfaceDAO<Quarto>{
 
     @Override
     public List<Quarto> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select id, descricao, capacidade_hospedes, metragem, identificacao, andar, flag_animais, obs, status from quarto where " + atributo + " like ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "descricao, "
+                + "capacidade_hospedes, "
+                + "metragem, "
+                + "identificacao, "
+                + "andar, "
+                + "flag_animais, "
+                + "obs, "
+                + "status "
+                + "from quarto where " + atributo + " like ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -123,7 +150,16 @@ public class QuartoDAO implements InterfaceDAO<Quarto>{
 
     @Override
     public void Update(Quarto objeto) {
-        String sqlInstrucao = "update quarto set descricao = ?, capacidade_hospedes = ?, metragem = ?, identificacao = ?, andar = ?, flag_animais = ?, obs = ?, status = ? where id = ?";
+        String sqlInstrucao = "update quarto set "
+                + "descricao = ?, "
+                + "capacidade_hospedes = ?, "
+                + "metragem = ?, "
+                + "identificacao = ?, "
+                + "andar = ?, "
+                + "flag_animais = ?, "
+                + "obs = ?, "
+                + "status = ? "
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

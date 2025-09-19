@@ -13,7 +13,26 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
     @Override
     public void Create(Hospede objeto) {
 
-        String sqlInstrucao = "Insert into hospede(nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, razao_social, cnpj, inscricao_estadual, contato) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlInstrucao = "Insert into hospede"
+                + "(nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "razao_social, "
+                + "cnpj, "
+                + "inscricao_estadual, "
+                + "contato) "
+                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -55,7 +74,27 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
     @Override
     public Hospede Retrieve(int id) {
 
-        String sqlInstrucao = "Select id, nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, razao_social, cnpj, inscricao_estadual, contato from hospede where id = ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "razao_social, "
+                + "cnpj, "
+                + "inscricao_estadual, "
+                + "contato "
+                + "from hospede where id = ?";
         
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -105,7 +144,27 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
 
     @Override
     public List<Hospede> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select id, nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, razao_social, cnpj, inscricao_estadual, contato from hospede where " + atributo + " like ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "razao_social, "
+                + "cnpj, "
+                + "inscricao_estadual, "
+                + "contato "
+                + "from hospede where " + atributo + " like ?";
         
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -175,7 +234,7 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
                 + "cnpj = ?, "
                 + "inscricao_estadual = ?, "
                 + "contato = ? "
-                + "from hospede where id = ?";
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

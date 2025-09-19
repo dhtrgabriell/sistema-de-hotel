@@ -3,14 +3,16 @@ package model;
 public class Servico {
     private int id;
     private String descricao;
-    private double valor;
+    private String obs;
+    private char status;
 
     public Servico() {}
 
-    public Servico(int id, String descricao, double valor) {
+    public Servico(int id, String descricao, String obs, char status) {
         this.id = id;
         this.descricao = descricao;
-        this.valor = valor;
+        this.obs = obs;
+        this.status = status;
     }
 
     public int getId() { return id; }
@@ -19,6 +21,21 @@ public class Servico {
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public double getValor() { return valor; }
-    public void setValor(double valor) { this.valor = valor; }
+    public String getObs() {
+        return obs;
+    }
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
+
+    
 }

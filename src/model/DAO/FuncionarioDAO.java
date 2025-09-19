@@ -14,7 +14,24 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
     @Override
     public void Create(Funcionario objeto) {
         
-        String sqlInstrucao = "Insert into funcionario(nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, usuario, senha) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlInstrucao = "Insert into funcionario"
+                + "(nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "usuario, "
+                + "senha) "
+                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -52,7 +69,24 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
     @Override
     public Funcionario Retrieve(int id) {
 
-        String sqlInstrucao = "Select nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, usuario, senha from funcionario where id = ?";
+        String sqlInstrucao = "Select "
+                + "nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "usuario, "
+                + "senha "
+                + "from funcionario where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -100,7 +134,24 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
     @Override
     public List<Funcionario> Retrieve(String atributo, String valor) {
 
-        String sqlInstrucao = "Select nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, usuario, senha from funcionario where " + atributo + " like ?";
+        String sqlInstrucao = "Select "
+                + "nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "usuario, "
+                + "senha "
+                + "from funcionario where " + atributo + " like ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -148,7 +199,24 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
     @Override
     public void Update(Funcionario objeto) {
 
-        String sqlInstrucao = "Update funcionario set nome = ?, fone = ?, fone2 = ?, email = ?, cep = ?, logradouro = ?, bairro = ?, cidade = ?, complemento = ?, data_cadastro = ?, cpf = ?, rg = ?, obs = ?, status = ?, usuario = ?, senha = ? from funcionario where id = ?";
+        String sqlInstrucao = "Update funcionario set "
+                + "nome = ?, "
+                + "fone = ?, "
+                + "fone2 = ?, "
+                + "email = ?, "
+                + "cep = ?, "
+                + "logradouro = ?, "
+                + "bairro = ?, "
+                + "cidade = ?, "
+                + "complemento = ?, "
+                + "data_cadastro = ?, "
+                + "cpf = ?, "
+                + "rg = ?, "
+                + "obs = ?, "
+                + "status = ?, "
+                + "usuario = ?, "
+                + "senha = ? "
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

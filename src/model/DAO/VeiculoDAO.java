@@ -17,7 +17,15 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo>{
 
     @Override
     public void Create(Veiculo objeto) {
-        String sqlInstrucao = "Insert into veiculo(placa, cor, modelo_id, funcionario_id, fornecedor_id, hospede_id, status) values(?, ?, ?, ?, ?, ?, ?,)";
+        String sqlInstrucao = "Insert into veiculo"
+                + "(placa, "
+                + "cor, "
+                + "modelo_id, "
+                + "funcionario_id, "
+                + "fornecedor_id, "
+                + "hospede_id, "
+                + "status) "
+                + "values(?, ?, ?, ?, ?, ?, ?,)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -45,7 +53,16 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo>{
 
     @Override
     public Veiculo Retrieve(int id) {
-        String sqlInstrucao = "Select id, placa, cor, modelo_id, funcionario_id, fornecedor_id, hospede_id, status from veiculo where id = ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "placa, "
+                + "cor, "
+                + "modelo_id, "
+                + "funcionario_id, "
+                + "fornecedor_id, "
+                + "hospede_id, "
+                + "status "
+                + "from veiculo where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -85,7 +102,16 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo>{
 
     @Override
     public List<Veiculo> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select id, placa, cor, modelo_id, funcionario_id, fornecedor_id, hospede_id, status from veiculo where " + atributo + " like ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "placa, "
+                + "cor, "
+                + "modelo_id, "
+                + "funcionario_id, "
+                + "fornecedor_id, "
+                + "hospede_id, "
+                + "status "
+                + "from veiculo where " + atributo + " like ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -127,7 +153,15 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo>{
 
     @Override
     public void Update(Veiculo objeto) {
-        String sqlInstrucao = "Update veiculo set placa = ?, cor = ?, modelo_id = ?, funcionario_id = ?, fornecedor_id = ?, hospede_id = ?, status = ? from veiculo where id = ?";
+        String sqlInstrucao = "Update veiculo set "
+                + "placa = ?, "
+                + "cor = ?, "
+                + "modelo_id = ?, "
+                + "funcionario_id = ?, "
+                + "fornecedor_id = ?, "
+                + "hospede_id = ?, "
+                + "status = ? "
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

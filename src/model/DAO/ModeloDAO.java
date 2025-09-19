@@ -14,7 +14,11 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
 
     @Override
     public void Create(Modelo objeto) {
-        String sqlInstrucao = "Insert into modelo(descricao, status, marca_id) values(?, ?, ?)";
+        String sqlInstrucao = "Insert into modelo("
+                + "descricao, "
+                + "status, "
+                + "marca_id) "
+                + "values(?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -39,7 +43,12 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
 
     @Override
     public Modelo Retrieve(int id) {
-        String sqlInstrucao = "Select id, descricao, status, marca_id from modelo where id = ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "descricao, "
+                + "status, "
+                + "marca_id "
+                + "from modelo where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -75,7 +84,12 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
 
     @Override
     public List<Modelo> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select id, descricao, status, marca_id from modelo where " + atributo + " like ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "descricao, "
+                + "status, "
+                + "marca_id "
+                + "from modelo where " + atributo + " like ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -112,7 +126,11 @@ public class ModeloDAO implements InterfaceDAO<Modelo>{
 
     @Override
     public void Update(Modelo objeto) {
-        String sqlInstrucao = "Update modelo set descricao = ?, status = ?, marca_id = ? where id = ?";
+        String sqlInstrucao = "Update modelo set "
+                + "descricao = ?, "
+                + "status = ?, "
+                + "marca_id = ? "
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

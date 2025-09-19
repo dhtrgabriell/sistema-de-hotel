@@ -12,7 +12,12 @@ public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento>{
 
     @Override
     public void Create(VagaEstacionamento objeto) {
-        String sqlInstrucao = "Insert into vaga_estacionamento(descricao, obs, metragem_vaga, status) values (?, ?, ?, ?)";
+        String sqlInstrucao = "Insert into vaga_estacionamento"
+                + "(descricao, "
+                + "obs, "
+                + "metragem_vaga, "
+                + "status) "
+                + "values (?, ?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -106,7 +111,12 @@ public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento>{
 
     @Override
     public void Update(VagaEstacionamento objeto) {
-        String sqlInstrucao = "Update vaga_estacionamento set descricao = ?, obs = ?, metragem_vaga = ?, status = ? where id = ?";
+        String sqlInstrucao = "Update vaga_estacionamento set "
+                + "descricao = ?, "
+                + "obs = ?, "
+                + "metragem_vaga = ?, "
+                + "status = ? "
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

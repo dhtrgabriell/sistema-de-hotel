@@ -13,7 +13,26 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor>{
     @Override
     public void Create(Fornecedor objeto) {
 
-        String sqlInstrucao = "Insert into fornecedor(nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, razao_social, cnpj, inscricao_estadual, contato) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+        String sqlInstrucao = "Insert into fornecedor"
+                + "(nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "razao_social, "
+                + "cnpj, "
+                + "inscricao_estadual, "
+                + "contato) "
+                + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -53,7 +72,26 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor>{
 
     @Override
     public Fornecedor Retrieve(int id) {
-        String sqlInstrucao = "Select nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, data_cadastro, cpf, rg, obs, status, razao_social, cnpj, inscricao_estadual, contato from fornecedor where id = ?";
+        String sqlInstrucao = "Select "
+                + "nome, "
+                + "fone, "
+                + "fone2, "
+                + "email, "
+                + "cep, "
+                + "logradouro, "
+                + "bairro, "
+                + "cidade, "
+                + "complemento, "
+                + "data_cadastro, "
+                + "cpf, "
+                + "rg, "
+                + "obs, "
+                + "status, "
+                + "razao_social, "
+                + "cnpj, "
+                + "inscricao_estadual, "
+                + "contato "
+                + "from fornecedor where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -187,7 +225,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor>{
                 + "cnpj = ?, "
                 + "inscricao_estadual = ?, "
                 + "contato = ? "
-                + "from fornecedor where id = ?";
+                + "where id = ?";
         
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

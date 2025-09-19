@@ -13,7 +13,10 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     @Override
     public void Create(Marca objeto) {
 
-        String sqlInstrucao = "Insert into marca(descicao, status) values(?, ?)";
+        String sqlInstrucao = "Insert into marca"
+                + "(descicao, "
+                + "status) "
+                + "values(?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -37,7 +40,11 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
 
     @Override
     public Marca Retrieve(int id) {
-        String sqlInstrucao = "Select id, descricao, status from marca where id = ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "descricao, "
+                + "status "
+                + "from marca where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -70,7 +77,11 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
 
     @Override
     public List<Marca> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select id, descricao, status from marca where " + atributo + " like ?";
+        String sqlInstrucao = "Select "
+                + "id, "
+                + "descricao, "
+                + "status "
+                + "from marca where " + atributo + " like ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -105,7 +116,10 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
 
     @Override
     public void Update(Marca objeto) {
-        String sqlInstrucao = "Update marca set descricao = ?, status = ? from marca where id = ?";
+        String sqlInstrucao = "Update marca set "
+                + "descricao = ?, "
+                + "status = ? "
+                + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
