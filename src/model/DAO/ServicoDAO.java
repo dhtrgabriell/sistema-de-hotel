@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import model.Servico;
 
@@ -79,12 +80,75 @@ public class ServicoDAO implements InterfaceDAO<Servico>{
 
     @Override
     public List<Servico> Retrieve(String atributo, String valor) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sqlInstrucao = "SELECT"
+                + "id, "
+                + "descricao, "
+                + "obs, "
+                + "status "
+                + "FROM servico WHERE " + atributo + " like ?";
+        
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        
+        List<Servico> listaServicos = new ArrayList<>();
+        
+        try{
+            
+            pstm = conexao.prepareStatement(sqlInstrucao);
+            pstm.setString(1, "%" + valor + "%");
+            rst = pstm.executeQuery();
+            
+            while(rst.next()){
+                
+                Servico servico = new Servico();
+                
+                servico.setId(rst.getInt("id"));
+                servico.setDescricao(rst.getString("descricao"));
+                servico.setObs(rst.getString("obs"));
+                servico.setStatus(rst.getString("status").charAt(0));
+                
+                listaServicos.add(servico);
+                return listaServicos;
+                
+            }
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        } finally{
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+            return listaServicos;
+        }
+            
     }
 
     @Override
     public void Update(Servico objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sqlInstrucao = "UPDATE servico SET"
+                + "descricao = ?, "
+                + "obs = ?, "
+                + "status = ? "
+                + "WHERE id = ?";
+        
+        Connection conexao = ConnectionFactory.getConnection();
+        PreparedStatement pstm = null;
+        
+        try{
+            
+            pstm = conexao.prepareStatement(sqlInstrucao);
+            
+            pstm.setString(1, objeto.getDescricao());
+            pstm.setString(2, objeto.getObs());
+            pstm.setString(3, String.valueOf(objeto.getStatus()));
+            
+            pstm.execute();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        } finally{
+            ConnectionFactory.closeConnection(conexao, pstm);
+        }
+        
     }
 
     @Override

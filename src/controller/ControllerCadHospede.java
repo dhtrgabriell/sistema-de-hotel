@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -39,10 +41,16 @@ public class ControllerCadHospede implements ActionListener {
         if (evento.getSource() == this.telaCadastroHospede.getjButtonNovo()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroHospede.getjPanelDados(), true);
-
+            
             this.telaCadastroHospede.getjTextFieldId().setEnabled(false);
             this.telaCadastroHospede.getjTextFieldNomeFantasia().requestFocus();
-
+            
+            java.util.Date dataAtual = new Date();
+            SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+            String novaData = dataFormatada.format(dataAtual);
+            
+            this.telaCadastroHospede.getjFormattedTextFieldDataCadastro().setText(novaData);
+            this.telaCadastroHospede.getjFormattedTextFieldDataCadastro().setEnabled(false);
 
         } else if (evento.getSource() == this.telaCadastroHospede.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), true);
@@ -99,6 +107,7 @@ public class ControllerCadHospede implements ActionListener {
                 this.telaCadastroHospede.getjFormattedTextFieldCpf().setText(hospede.getCpf());
             }
         } else if (evento.getSource() == this.telaCadastroHospede.getjButtonSair()) {
+            this.telaCadastroHospede.dispose();
         }
     }
 }

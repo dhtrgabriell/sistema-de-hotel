@@ -120,7 +120,7 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jFormattedTextField5" min="-2" pref="181" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldDataCadastro" min="-2" pref="181" max="-2" attributes="0"/>
                               <Component id="jLabelCadastro" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -194,15 +194,10 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jTextFieldNomeFantasia" min="-2" pref="349" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelNomeFantasia" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jTextFieldNomeFantasia" alignment="0" min="-2" pref="349" max="-2" attributes="0"/>
+                                      <Component id="jLabelNomeFantasia" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabelRazaoSocial" min="-2" max="-2" attributes="0"/>
@@ -243,7 +238,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -442,7 +437,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField5">
+        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldDataCadastro">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCadastro">
           <Properties>

@@ -11,13 +11,13 @@ public class TelaProdutoCopa extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
-        JLabel lblNome = new JLabel("Nome:");
-        lblNome.setBounds(10, 10, 80, 25);
-        add(lblNome);
+        JLabel lblDescricao = new JLabel("Descricao:");
+        lblDescricao.setBounds(10, 10, 80, 25);
+        add(lblDescricao);
 
-        JTextField txtNome = new JTextField();
-        txtNome.setBounds(100, 10, 160, 25);
-        add(txtNome);
+        JTextField txtDescricao = new JTextField();
+        txtDescricao.setBounds(100, 10, 160, 25);
+        add(txtDescricao);
 
         JLabel lblPreco = new JLabel("Preço:");
         lblPreco.setBounds(10, 40, 80, 25);
@@ -27,16 +27,35 @@ public class TelaProdutoCopa extends JFrame {
         txtPreco.setBounds(100, 40, 160, 25);
         add(txtPreco);
 
+        JLabel lblObs = new JLabel("Obs: ");
+        lblObs.setBounds(10, 10, 80, 25);
+        add(lblObs);
+        
+        JTextField txtObs = new JTextField();
+        txtObs.setBounds(100, 40, 160, 25);
+        add(txtObs);
+        
+        JLabel lblStatus = new JLabel("Status: ");
+        lblStatus.setBounds(10, 10, 80, 25);
+        add(lblObs);
+        
+        JTextField txtStatus = new JTextField();
+        txtStatus.setBounds(100, 40, 160, 25);
+        add(txtStatus);
+        
         JButton btnSalvar = new JButton("Salvar");
-        btnSalvar.setBounds(100, 80, 100, 25);
+        btnSalvar.setBounds(100, 10, 160, 25);
         add(btnSalvar);
+        
 
         ProdutoCopaController controller = new ProdutoCopaController();
 
         btnSalvar.addActionListener(e -> {
-            String nome = txtNome.getText();
+            String descricao = txtDescricao.getText();
             double preco = Double.parseDouble(txtPreco.getText());
-            ProdutoCopa produto = new ProdutoCopa(0, nome, preco);
+            String obs = txtObs.getText();
+            char status = txtStatus.getText().charAt(0);
+            ProdutoCopa produto = new ProdutoCopa(0, descricao, preco, obs, status);
             controller.adicionarProduto(produto);
             JOptionPane.showMessageDialog(this, "Produto salvo com sucesso!");
         });

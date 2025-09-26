@@ -77,6 +77,7 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo>{
             rst = pstm.executeQuery();
 
             while(rst.next()){
+                Modelo modelo = new Modelo();
 
                 veiculo.setId(rst.getInt("id"));
                 veiculo.setPlaca(rst.getString("placa"));
