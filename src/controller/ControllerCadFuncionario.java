@@ -16,13 +16,15 @@ public class ControllerCadFuncionario implements ActionListener {
     private ArrayList<Funcionario> listaDeFuncionarios;
 
     public ControllerCadFuncionario(TelaCadastroFuncionario telaCadastroFuncionario) {
-        this.listaDeFuncionarios = new ArrayList<>();
         this.telaCadastroFuncionario = telaCadastroFuncionario;
+        this.listaDeFuncionarios = new ArrayList<>();
+
         this.telaCadastroFuncionario.getjButtonNovo().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonCancelar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonGravar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonBuscar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonSair().addActionListener(this);
+        
         utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
     }
