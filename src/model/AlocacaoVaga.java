@@ -4,7 +4,7 @@ public class AlocacaoVaga {
     private int id;
     private String obs;
     private char status;
-    
+    //murilo esteve aqui
     private Check check;
     private Veiculo veiculo;
     private VagaEstacionamento vagaEstacionamento;
