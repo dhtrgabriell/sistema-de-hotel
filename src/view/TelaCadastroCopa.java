@@ -47,7 +47,7 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
         jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Modelo para Cadastros");
+        setTitle("Cadastros :: Copa");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(153, 153, 255));
@@ -100,7 +100,10 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIDActionPerformed(evt);
             }
-        });
+            
+        })
+        ;
+        
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -282,4 +285,75 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldOBS;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
+        public javax.swing.JButton getjButtonBuscar() {
+        return jButtonBuscar;
+    }
+
+    public void setjButtonBuscar(javax.swing.JButton jButtonBuscar) {
+        this.jButtonBuscar = jButtonBuscar;
+    }
+
+    public javax.swing.JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public void setjButtonCancelar(javax.swing.JButton jButtonCancelar) {
+        this.jButtonCancelar = jButtonCancelar;
+    }
+
+    public javax.swing.JButton getjButtonGravar() {
+        return jButtonGravar;
+    }
+
+    public void setjButtonGravar(javax.swing.JButton jButtonGravar) {
+        this.jButtonGravar = jButtonGravar;
+    }
+
+    public javax.swing.JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public void setjButtonNovo(javax.swing.JButton jButtonNovo) {
+        this.jButtonNovo = jButtonNovo;
+    }
+
+    public javax.swing.JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public void setjButtonSair(javax.swing.JButton jButtonSair) {
+        this.jButtonSair = jButtonSair;
+    }
+
+    public javax.swing.JTextField getjTextFieldDesc() {
+        return jTextFieldDesc;
+    }
+
+    public void setjTextFieldDesc(javax.swing.JTextField jTextFieldDesc) {
+        this.jTextFieldDesc = jTextFieldDesc;
+    }
+
+    public javax.swing.JTextField getjTextFieldID() {
+        return jTextFieldID;
+    }
+
+    public void setjTextFieldID(javax.swing.JTextField jTextFieldID) {
+        this.jTextFieldID = jTextFieldID;
+    }
+
+    public javax.swing.JTextField getjTextFieldOBS() {
+        return jTextFieldOBS;
+    }
+
+    public void setjTextFieldOBS(javax.swing.JTextField jTextFieldOBS) {
+        this.jTextFieldOBS = jTextFieldOBS;
+    }
+
+    public javax.swing.JTextField getjTextFieldValor() {
+        return jTextFieldValor;
+    }
+
+    public void setjTextFieldValor(javax.swing.JTextField jTextFieldValor) {
+        this.jTextFieldValor = jTextFieldValor;
+    }
 }
