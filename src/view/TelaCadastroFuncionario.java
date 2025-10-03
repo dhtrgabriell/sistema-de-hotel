@@ -84,7 +84,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
                 jLabelEmail = new javax.swing.JLabel();
                 jTextFieldEmail = new javax.swing.JTextField();
                 jFormattedTextFieldFone1 = new javax.swing.JFormattedTextField();
-                jFormattedTextField5 = new javax.swing.JFormattedTextField();
+                jFormattedTextFieldDataCadastro = new javax.swing.JFormattedTextField();//get do teleone que ta com nome diffre
                 jLabelCadastro = new javax.swing.JLabel();
                 jLabelCep = new javax.swing.JLabel();
                 jFormattedTextFieldCep = new javax.swing.JFormattedTextField();
@@ -259,7 +259,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
                                                                                                                 .addGroup(jPanelDadosLayout
                                                                                                                                 .createParallelGroup(
                                                                                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                .addComponent(jFormattedTextField5,
+                                                                                                                                .addComponent(jFormattedTextFieldDataCadastro,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                                 181,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -441,7 +441,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(jFormattedTextField5,
+                                                                                                                .addComponent(jFormattedTextFieldDataCadastro,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -831,7 +831,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
                 func.setBairro(jTextFieldBairro.getText());
                 func.setCidade(jTextFieldCidade.getText());
                 func.setComplemento(jTextFieldComplemento.getText());
-                func.setDataCadastro(jFormattedTextField5.getText());
+                func.setDataCadastro(jFormattedTextFieldDataCadastro.getText());
                 func.setCpf(jFormattedTextFieldCpf.getText());
                 func.setRg(jTextFieldRg.getText());
                 func.setObs(jTextFieldObs.getText());
@@ -846,7 +846,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
         private javax.swing.JButton jButtonNovo;
         private javax.swing.JButton jButtonSair;
         private javax.swing.JComboBox<String> jComboBoxSexo;
-        private javax.swing.JFormattedTextField jFormattedTextField5;
+        private javax.swing.JFormattedTextField jFormattedTextFieldDataCadastro;
         private javax.swing.JFormattedTextField jFormattedTextFieldCep;
         private javax.swing.JFormattedTextField jFormattedTextFieldCnpj;
         private javax.swing.JFormattedTextField jFormattedTextFieldCpf;
@@ -893,8 +893,8 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
                 return jComboBoxSexo;
         }
 
-        public javax.swing.JFormattedTextField getjFormattedTextField5() {
-                return jFormattedTextField5;
+        public javax.swing.JFormattedTextField getjFormattedTextFieldDataCadastro() {
+                return jFormattedTextFieldDataCadastro;
         }
 
         public javax.swing.JFormattedTextField getjFormattedTextFieldCep() {
