@@ -76,7 +76,7 @@ public class ControllerCadHospede implements ActionListener {
                 hospede.setCnpj(this.telaCadastroHospede.getjFormattedTextFieldCnpj().getText());
                 hospede.setInscricaoEstadual(this.telaCadastroHospede.getjTextFieldInscricaoEstadual().getText());
                 hospede.setSexo(this.telaCadastroHospede.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
-
+                
                 if (this.telaCadastroHospede.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                     // inclusão
                     hospede.setStatus('A');
@@ -106,24 +106,11 @@ public class ControllerCadHospede implements ActionListener {
 
                 Hospede hospede = new Hospede();
                 hospede = service.HospedeService.Carregar(codigo);
-                
+
+                this.telaCadastroHospede.getjFormattedTextFieldCep().setText(hospede.getCep());
                 this.telaCadastroHospede.getjTextFieldNomeFantasia().setText(hospede.getNome());
                 this.telaCadastroHospede.getjTextFieldRazaoSocial().setText(hospede.getRazaoSocial());
-                //this.telaCadastroHospede.getjComboBoxSexo().setText(hospede.getSexo());
-                this.telaCadastroHospede.getjTextFieldRg().setText(hospede.getRg());
                 this.telaCadastroHospede.getjFormattedTextFieldCpf().setText(hospede.getCpf());
-                this.telaCadastroHospede.getjTextFieldInscricaoEstadual().setText(hospede.getInscricaoEstadual());
-                this.telaCadastroHospede.getjFormattedTextFieldCnpj().setText(hospede.getCnpj());
-                this.telaCadastroHospede.getjFormattedTextFieldFone1().setText(hospede.getFone());
-                this.telaCadastroHospede.getjFormattedTextFieldFone2().setText(hospede.getFone2());
-                this.telaCadastroHospede.getjTextFieldEmail().setText(hospede.getEmail());
-                this.telaCadastroHospede.getjFormattedTextFieldCep().setText(hospede.getCep());
-                this.telaCadastroHospede.getjTextFieldCidade().setText(hospede.getCidade());
-                this.telaCadastroHospede.getjTextFieldBairro().setText(hospede.getBairro());
-                this.telaCadastroHospede.getjTextFieldLogradouro().setText(hospede.getLogradouro());
-                this.telaCadastroHospede.getjTextFieldComplemento().setText(hospede.getComplemento());
-                this.telaCadastroHospede.getjTextFieldContato().setText(hospede.getContato());
-                this.telaCadastroHospede.getjTextFieldObs().setText(hospede.getObs());
 
                 //carregar os dados para os containers faltantes
                 this.telaCadastroHospede.getjTextFieldNomeFantasia().requestFocus();

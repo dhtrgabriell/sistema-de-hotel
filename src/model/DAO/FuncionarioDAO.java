@@ -28,7 +28,9 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
                 + "cpf, "
                 + "rg, "
                 + "obs, "
-                + "status) "
+                + "status, "
+                + "usuario, "
+                + "senha) "
                 + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
@@ -79,7 +81,9 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
                 + "cpf, "
                 + "rg, "
                 + "obs, "
-                + "status "
+                + "status, "
+                + "usuario, "
+                + "senha "
                 + "from funcionario where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
@@ -140,7 +144,9 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
                 + "cpf, "
                 + "rg, "
                 + "obs, "
-                + "status "
+                + "status, "
+                + "usuario, "
+                + "senha "
                 + "from funcionario where " + atributo + " like ?";
 
         Connection conexao = ConnectionFactory.getConnection();
@@ -201,7 +207,9 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
                 + "cpf = ?, "
                 + "rg = ?, "
                 + "obs = ?, "
-                + "status = ? "
+                + "status = ?, "
+                + "usuario = ?, "
+                + "senha = ? "
                 + "where id = ?";
 
         Connection conexao = ConnectionFactory.getConnection();
