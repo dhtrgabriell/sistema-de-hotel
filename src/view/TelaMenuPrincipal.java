@@ -204,8 +204,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     }// GEN-LAST:event_jMenuItemVeiculoActionPerformed
 
     private void jMenuItemFornecedorActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemFornecedorActionPerformed
-        // to do : sem controller
         TelaCadastroFornecedor telaCadastroFornecedor = new TelaCadastroFornecedor(null, true);
+        ControllerCadFornecedor controllerCadFornecedor = new ControllerCadFornecedor(telaCadastroFornecedor);
         telaCadastroFornecedor.setVisible(true);
     }// GEN-LAST:event_jMenuItemFornecedorActionPerformed
 

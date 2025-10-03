@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 import model.Funcionario;
@@ -17,7 +19,6 @@ import view.*;
 public class ControllerCadFuncionario implements ActionListener {
 
     TelaCadastroFuncionario telaCadastroFuncionario;
-
     public static int codigo;
 
     public ControllerCadFuncionario(TelaCadastroFuncionario telaCadastroFuncionario) {
@@ -44,19 +45,18 @@ public class ControllerCadFuncionario implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaCadastroFuncionario.getjButtonNovo()) {
+            
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), true);
             //Adicionei o desligamento do textfield do id e coloquei o cursor no textfield do nome
             this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
-            this.telaCadastroFuncionario.controlaCampos(true);
+            this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
 
             Date dataAtual = new Date();
             SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
             String novaData = dataFormatada.format(dataAtual);
             this.telaCadastroFuncionario.getjFormattedTextFieldDataCadastro().setText(novaData);
             this.telaCadastroFuncionario.getjFormattedTextFieldDataCadastro().setEnabled(false);
-
-            this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonCancelar()) {
             utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
