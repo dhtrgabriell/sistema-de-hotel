@@ -53,6 +53,8 @@ public class TelaBuscaFuncionario extends javax.swing.JDialog {
     }
 
     
+
+    
     
     
     /**
@@ -292,4 +294,31 @@ public class TelaBuscaFuncionario extends javax.swing.JDialog {
     private javax.swing.JTextField jTFFiltro;
     private javax.swing.JTable jTableDados;
     // End of variables declaration//GEN-END:variables
+    public javax.swing.JLabel getjLabelFiltrar() {
+        return jLabelFiltrar;
+    }
+
+    public javax.swing.JLabel getjLabelTitulo() {
+        return jLabelTitulo;
+    }
+
+    public javax.swing.JLabel getjLabelValor() {
+        return jLabelValor;
+    }
+
+    public javax.swing.JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+    public javax.swing.JPanel getjPanelFiltros() {
+        return jPanelFiltros;
+    }
+
+    public javax.swing.JPanel getjPaneltitulo() {
+        return jPaneltitulo;
+    }
+
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
 }

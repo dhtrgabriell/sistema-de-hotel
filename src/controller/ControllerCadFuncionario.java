@@ -14,6 +14,7 @@ public class ControllerCadFuncionario implements ActionListener {
 
     TelaCadastroFuncionario telaCadastroFuncionario;
     private ArrayList<Funcionario> listaDeFuncionarios;
+    public static int codigo;
 
     public ControllerCadFuncionario(TelaCadastroFuncionario telaCadastroFuncionario) {
         this.telaCadastroFuncionario = telaCadastroFuncionario;
@@ -24,6 +25,13 @@ public class ControllerCadFuncionario implements ActionListener {
         this.telaCadastroFuncionario.getjButtonGravar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonBuscar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonSair().addActionListener(this);
+
+        //Desenvolver as setagens de situação inicial dos componentes
+        /*this.telaCadastroFuncionario.getjButtonNovo().setEnabled(true);
+        this.telaCadastroFuncionario.getjButtonCancelar().setEnabled(false);
+        this.telaCadastroFuncionario.getjButtonGravar().setEnabled(false);
+        this.telaCadastroFuncionario.getjButtonBuscar().setEnabled(true);
+        this.telaCadastroFuncionario.getjButtonSair().setEnabled(true);*/
         
         utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
@@ -32,8 +40,10 @@ public class ControllerCadFuncionario implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.telaCadastroFuncionario.getjButtonNovo()) {
-            utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), false);
+            utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), true);
+            //Adicionei o desligamento do textfield do id e coloquei o cursor no textfield do nome
+            this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
             this.telaCadastroFuncionario.controlaCampos(true);
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonCancelar()) {
@@ -41,12 +51,33 @@ public class ControllerCadFuncionario implements ActionListener {
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
             this.telaCadastroFuncionario.controlaCampos(false);
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonBuscar()) {
+
+            codigo = -1; //invalida a busca
+
             // 1. Cria a View (a tela)
-            TelaBuscaFuncionario telaBusca = new TelaBuscaFuncionario(null, true);
-            ControllerBuscaFuncionario controllerBusca = new ControllerBuscaFuncionario(telaBusca, this.listaDeFuncionarios);
+            TelaBuscaFuncionario telaBuscaFuncionario = new TelaBuscaFuncionario(null, true);
+            ControllerBuscaFuncionario controllerBuscaFuncionario = new ControllerBuscaFuncionario(telaBuscaFuncionario, this.listaDeFuncionarios);
 
             // 3. Torna a tela visível. Agora ela tem um controller ativo.
-            telaBusca.setVisible(true);
+            telaBuscaFuncionario.setVisible(true);
+
+            if(codigo != -1){
+                utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), false);
+                utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), true);
+
+                this.telaCadastroFuncionario.getjTextFieldId().setText(codigo + "");
+                this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
+
+                Funcionario funcionario = new Funcionario();
+                funcionario = service.FuncionarioService.Carregar(codigo);
+
+                this.telaCadastroFuncionario.getjFormattedTextFieldCep().setText(funcionario.getCep());
+                this.telaCadastroFuncionario.getjTextFieldNomeFantasia().setText(funcionario.getNome());
+                this.telaCadastroFuncionario.getjTextFieldRg().setText(funcionario.getRg());
+                //this.telaCadastroFuncionario.getjTextFieldCpf().setText(funcionario.getCpf());
+
+                this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
+            }
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
             Funcionario funcionarioDoFormulario = (Funcionario) this.telaCadastroFuncionario.getDadosDoFormulario();

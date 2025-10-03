@@ -50,6 +50,8 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
         return jPanelDados;
     }
 
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -618,5 +620,164 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldRazaoSocial;
     private javax.swing.JTextField jTextFieldRg;
     // End of variables declaration//GEN-END:variables
+    public javax.swing.JComboBox<String> getjComboBoxSexo() {
+        return jComboBoxSexo;
+    }
+
+    public javax.swing.JFormattedTextField getjFormattedTextField5() {
+        return jFormattedTextField5;
+    }
+
+    public javax.swing.JFormattedTextField getjFormattedTextFieldCep() {
+        return jFormattedTextFieldCep;
+    }
+
+    public javax.swing.JFormattedTextField getjFormattedTextFieldCnpj() {
+        return jFormattedTextFieldCnpj;
+    }
+
+    public javax.swing.JFormattedTextField getjFormattedTextFieldCpf() {
+        return jFormattedTextFieldCpf;
+    }
+
+    public javax.swing.JFormattedTextField getjFormattedTextFieldFone1() {
+        return jFormattedTextFieldFone1;
+    }
+
+    public javax.swing.JFormattedTextField getjFormattedTextFieldFone2() {
+        return jFormattedTextFieldFone2;
+    }
+
+    public javax.swing.JLabel getjLabelBairro() {
+        return jLabelBairro;
+    }
+
+    public javax.swing.JLabel getjLabelCadastro() {
+        return jLabelCadastro;
+    }
+
+    public javax.swing.JLabel getjLabelCep() {
+        return jLabelCep;
+    }
+
+    public javax.swing.JLabel getjLabelCidade() {
+        return jLabelCidade;
+    }
+
+    public javax.swing.JLabel getjLabelCnpj() {
+        return jLabelCnpj;
+    }
+
+    public javax.swing.JLabel getjLabelComplemento() {
+        return jLabelComplemento;
+    }
+
+    public javax.swing.JLabel getjLabelContato() {
+        return jLabelContato;
+    }
+
+    public javax.swing.JLabel getjLabelCpf() {
+        return jLabelCpf;
+    }
+
+    public javax.swing.JLabel getjLabelEmail() {
+        return jLabelEmail;
+    }
+
+    public javax.swing.JLabel getjLabelFone1() {
+        return jLabelFone1;
+    }
+
+    public javax.swing.JLabel getjLabelFone2() {
+        return jLabelFone2;
+    }
+
+    public javax.swing.JLabel getjLabelId() {
+        return jLabelId;
+    }
+
+    public javax.swing.JLabel getjLabelInscricaoEstadual() {
+        return jLabelInscricaoEstadual;
+    }
+
+    public javax.swing.JLabel getjLabelLogradouro() {
+        return jLabelLogradouro;
+    }
+
+    public javax.swing.JLabel getjLabelNomeFantasia() {
+        return jLabelNomeFantasia;
+    }
+
+    public javax.swing.JLabel getjLabelObs() {
+        return jLabelObs;
+    }
+
+    public javax.swing.JLabel getjLabelRazaoSocial() {
+        return jLabelRazaoSocial;
+    }
+
+    public javax.swing.JLabel getjLabelSexo() {
+        return jLabelSexo;
+    }
+
+    public javax.swing.JLabel getjLabelTitulo() {
+        return jLabelTitulo;
+    }
+
+    public javax.swing.JLabel getjLabelrg() {
+        return jLabelrg;
+    }
+
+    public javax.swing.JPanel getjPanelTitulo() {
+        return jPanelTitulo;
+    }
+
+    public javax.swing.JTextField getjTextFieldBairro() {
+        return jTextFieldBairro;
+    }
+
+    public javax.swing.JTextField getjTextFieldCidade() {
+        return jTextFieldCidade;
+    }
+
+    public javax.swing.JTextField getjTextFieldComplemento() {
+        return jTextFieldComplemento;
+    }
+
+    public javax.swing.JTextField getjTextFieldContato() {
+        return jTextFieldContato;
+    }
+
+    public javax.swing.JTextField getjTextFieldEmail() {
+        return jTextFieldEmail;
+    }
+
+    public javax.swing.JTextField getjTextFieldId() {
+        return jTextFieldId;
+    }
+
+    public javax.swing.JTextField getjTextFieldInscricaoEstadual() {
+        return jTextFieldInscricaoEstadual;
+    }
+
+    public javax.swing.JTextField getjTextFieldLogradouro() {
+        return jTextFieldLogradouro;
+    }
+
+    public javax.swing.JTextField getjTextFieldNomeFantasia() {
+        return jTextFieldNomeFantasia;
+    }
+
+    public javax.swing.JTextField getjTextFieldObs() {
+        return jTextFieldObs;
+    }
+
+    public javax.swing.JTextField getjTextFieldRazaoSocial() {
+        return jTextFieldRazaoSocial;
+    }
+
+    public javax.swing.JTextField getjTextFieldRg() {
+        return jTextFieldRg;
+    }
 
 }
