@@ -53,10 +53,22 @@ public class ControllerCadHospede implements ActionListener {
                 Hospede hospede = new Hospede();
                 hospede.setNome(this.telaCadastroHospede.getjTextFieldNomeFantasia().getText());
                 hospede.setRazaoSocial(this.telaCadastroHospede.getjTextFieldRazaoSocial().getText());
-                //Efeturar a atribuação para os outros atributos do objeto
-                //Não efetuar a atribuição do ID. Este caso já trato nos desvios condicionais a seguir
-                //Não efetuar a atribuição do Status pq ainda não estamos considerando estas situações
-                //e no caso estou setando somente no momento da inclusão
+                hospede.setCpf(this.telaCadastroHospede.getjFormattedTextFieldCpf().getText());
+                hospede.setCep(this.telaCadastroHospede.getjFormattedTextFieldCep().getText());
+                hospede.setRg(this.telaCadastroHospede.getjTextFieldRg().getText());
+                hospede.setBairro(this.telaCadastroHospede.getjTextFieldBairro().getText());
+                hospede.setCidade(this.telaCadastroHospede.getjTextFieldCidade().getText());
+                hospede.setComplemento(this.telaCadastroHospede.getjTextFieldComplemento().getText());
+                hospede.setEmail(this.telaCadastroHospede.getjTextFieldEmail().getText());
+                hospede.setFone1(this.telaCadastroHospede.getjFormattedTextFieldFone1().getText());
+                hospede.setFone2(this.telaCadastroHospede.getjFormattedTextFieldFone2().getText());
+                hospede.setLogradouro(this.telaCadastroHospede.getjTextFieldLogradouro().getText());
+                hospede.setObs(this.telaCadastroHospede.getjTextFieldObs().getText());
+                hospede.setContato(this.telaCadastroHospede.getjTextFieldContato().getText());
+                hospede.setCnpj(this.telaCadastroHospede.getjFormattedTextFieldCnpj().getText());
+                hospede.setInscricaoEstadual(this.telaCadastroHospede.getjTextFieldInscricaoEstadual().getText());
+                hospede.setSexo(this.telaCadastroHospede.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
+                
                 if (this.telaCadastroHospede.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                     // inclusão
                     hospede.setStatus('A');
