@@ -8,33 +8,34 @@ package service;
 
 import java.util.List;
 import model.Veiculo;
+import model.DAO.VeiculoDAO;
 /**
  *
  * @author IFSC
  */
 public class VeiculoService {
-public static void Atualizar(model.Veiculo objeto) {
-        model.DAO.VeiculoDAO veiculoDAO = new model.DAO.VeiculoDAO();
-        veiculoDAO.Update(objeto);
-    }
+    public static void Atualizar(Veiculo objeto) {
+            VeiculoDAO veiculoDAO = new VeiculoDAO();
+            veiculoDAO.Update(objeto);
+        }
 
-    public static model.Veiculo Carregar(int id) {
-        model.DAO.VeiculoDAO veiculoDAO = new model.DAO.VeiculoDAO();
-        return veiculoDAO.Retrieve(id);
-    }
+        public static Veiculo Carregar(int id) {
+            VeiculoDAO veiculoDAO = new VeiculoDAO();
+            return veiculoDAO.Retrieve(id);
+        }
 
-    public static List<Veiculo> Carregar(String atributo, String valor) {
-        model.DAO.VeiculoDAO veiculoDAO = new model.DAO.VeiculoDAO();
-        return veiculoDAO.Retrieve(atributo, valor);
-    }
+        public static List<Veiculo> Carregar(String atributo, String valor) {
+            VeiculoDAO veiculoDAO = new VeiculoDAO();
+            return veiculoDAO.Retrieve(atributo, valor);
+        }
 
-    public static void Criar(model.Veiculo objeto) {
-        model.DAO.VeiculoDAO veiculoDAO = new model.DAO.VeiculoDAO();
-        veiculoDAO.Create(objeto);
-    }
+        public static void Criar(Veiculo objeto) {
+            VeiculoDAO veiculoDAO = new VeiculoDAO();
+            veiculoDAO.Create(objeto);
+        }
 
-    public static void Deletar(model.Veiculo objeto) {
-        model.DAO.VeiculoDAO veiculoDAO = new model.DAO.VeiculoDAO();
-        veiculoDAO.Delete(objeto);
-    }
+        public static void Deletar(Veiculo objeto) {
+            VeiculoDAO veiculoDAO = new VeiculoDAO();
+            veiculoDAO.Delete(objeto);
+        }
 }

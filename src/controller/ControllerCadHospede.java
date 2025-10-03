@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 import model.Hospede;
 import view.TelaBuscaHospede;
 import view.TelaCadastroHospede;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ControllerCadHospede implements ActionListener {
 
@@ -40,6 +42,12 @@ public class ControllerCadHospede implements ActionListener {
             //Adicionei o desligamento do textfield do id e coloquei o cursor no textfield do nome fantasia
             this.telaCadastroHospede.getjTextFieldId().setEnabled(false);
             this.telaCadastroHospede.getjTextFieldNomeFantasia().requestFocus();
+
+            Date dataAtual = new Date();
+            SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+            String novaData = dataFormatada.format(dataAtual);
+            this.telaCadastroHospede.getjFormattedTextFieldDataCadastro().setText(novaData);
+            this.telaCadastroHospede.getjFormattedTextFieldDataCadastro().setEnabled(false);
 
         } else if (evento.getSource() == this.telaCadastroHospede.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), true);

@@ -7,34 +7,35 @@ package service;
 
 import java.util.List;
 import model.Marca;
+import model.DAO.MarcaDAO;
 
 /**
  *
  * @author IFSC
  */
 public class MarcaService {
-    public static void Atualizar(model.Marca objeto) {
+    public static void Atualizar(Marca objeto) {
         model.DAO.MarcaDAO marcaDAO = new model.DAO.MarcaDAO();
         marcaDAO.Update(objeto);
     }
 
-    public static model.Marca Carregar(int id) {
-        model.DAO.MarcaDAO marcaDAO = new model.DAO.MarcaDAO();
+    public static Marca Carregar(int id) {
+        MarcaDAO marcaDAO = new MarcaDAO();
         return marcaDAO.Retrieve(id);
     }
 
     public static List<Marca> Carregar(String atributo, String valor) {
-        model.DAO.MarcaDAO marcaDAO = new model.DAO.MarcaDAO();
+        MarcaDAO marcaDAO = new MarcaDAO();
         return marcaDAO.Retrieve(atributo, valor);
     }
 
-    public static void Criar(model.Marca objeto) {
-        model.DAO.MarcaDAO marcaDAO = new model.DAO.MarcaDAO();
+    public static void Criar(Marca objeto) {
+        MarcaDAO marcaDAO = new MarcaDAO();
         marcaDAO.Create(objeto);
     }
 
-    public static void Deletar(model.Marca objeto) {
-        model.DAO.MarcaDAO marcaDAO = new model.DAO.MarcaDAO();
+    public static void Deletar(Marca objeto) {
+        MarcaDAO marcaDAO = new MarcaDAO();
         marcaDAO.Delete(objeto);
     }
 

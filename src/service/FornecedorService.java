@@ -6,6 +6,7 @@ package service;
 
 import java.util.List;
 import model.Fornecedor;
+import model.DAO.FornecedorDAO;
 
 /**
  *
@@ -14,27 +15,27 @@ import model.Fornecedor;
 public class FornecedorService {
 
     public static void Atualizar(Fornecedor objeto) {
-        model.DAO.FornecedorDAO fornecedorDAO = new model.DAO.FornecedorDAO();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
         fornecedorDAO.Update(objeto);
     }
 
     public static Fornecedor Carregar(int id) {
-        model.DAO.FornecedorDAO fornecedorDAO = new model.DAO.FornecedorDAO();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
         return fornecedorDAO.Retrieve(id);
     }
 
     public static List<Fornecedor> Carregar(String atributo, String valor) {
-        model.DAO.FornecedorDAO fornecedorDAO = new model.DAO.FornecedorDAO();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
         return fornecedorDAO.Retrieve(atributo, valor);
     }
 
     public static void Criar(Fornecedor objeto) {
-        model.DAO.FornecedorDAO fornecedorDAO = new model.DAO.FornecedorDAO();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
         fornecedorDAO.Create(objeto);
     }
 
     public static void Deletar(Fornecedor objeto) {
-        model.DAO.FornecedorDAO fornecedorDAO = new model.DAO.FornecedorDAO();
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
         fornecedorDAO.Delete(objeto);
     }
 }

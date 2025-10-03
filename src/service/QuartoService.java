@@ -7,34 +7,35 @@ package service;
 
 import java.util.List;
 import model.Quarto;
+import model.DAO.QuartoDAO;
 
 /**
  *
  * @author IFSC
  */
 public class QuartoService {
-    public static void Atualizar(model.Quarto objeto) {
-        model.DAO.QuartoDAO quartoDAO = new model.DAO.QuartoDAO();
+    public static void Atualizar(Quarto objeto) {
+        QuartoDAO quartoDAO = new QuartoDAO();
         quartoDAO.Update(objeto);
     }
 
-    public static model.Quarto Carregar(int id) {
-        model.DAO.QuartoDAO quartoDAO = new model.DAO.QuartoDAO();
+    public static Quarto Carregar(int id) {
+        QuartoDAO quartoDAO = new QuartoDAO();
         return quartoDAO.Retrieve(id);
     }
 
     public static List<Quarto> Carregar(String atributo, String valor) {
-        model.DAO.QuartoDAO quartoDAO = new model.DAO.QuartoDAO();
+        QuartoDAO quartoDAO = new QuartoDAO();
         return quartoDAO.Retrieve(atributo, valor);
     }
 
-    public static void Criar(model.Quarto objeto) {
-        model.DAO.QuartoDAO quartoDAO = new model.DAO.QuartoDAO();
+    public static void Criar(Quarto objeto) {
+        QuartoDAO quartoDAO = new QuartoDAO();
         quartoDAO.Create(objeto);
     }
 
-    public static void Deletar(model.Quarto objeto) {
-        model.DAO.QuartoDAO quartoDAO = new model.DAO.QuartoDAO();
+    public static void Deletar(Quarto objeto) {
+        QuartoDAO quartoDAO = new QuartoDAO();
         quartoDAO.Delete(objeto);
     }
 }

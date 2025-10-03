@@ -50,6 +50,14 @@ public class ControllerCadFuncionario implements ActionListener {
             this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
             this.telaCadastroFuncionario.controlaCampos(true);
 
+            Date dataAtual = new Date();
+            SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+            String novaData = dataFormatada.format(dataAtual);
+            this.telaCadastroFuncionario.getjFormattedTextFieldDataCadastro().setText(novaData);
+            this.telaCadastroFuncionario.getjFormattedTextFieldDataCadastro().setEnabled(false);
+
+            this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
+
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonCancelar()) {
             utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);

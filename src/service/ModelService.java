@@ -8,12 +8,12 @@ import java.util.List;
 import model.Modelo;
 
 public class ModelService {
-    public static void Atualizar(model.Modelo objeto) {
+    public static void Atualizar(Modelo objeto) {
         model.DAO.ModeloDAO modeloDAO = new model.DAO.ModeloDAO();
         modeloDAO.Update(objeto);
     }
 
-    public static model.Modelo Carregar(int id) {
+    public static Modelo Carregar(int id) {
         model.DAO.ModeloDAO modeloDAO = new model.DAO.ModeloDAO();
         return modeloDAO.Retrieve(id);
     }
@@ -23,12 +23,12 @@ public class ModelService {
         return modeloDAO.Retrieve(atributo, valor);
     }
 
-    public static void Criar(model.Modelo objeto) {
+    public static void Criar(Modelo objeto) {
         model.DAO.ModeloDAO modeloDAO = new model.DAO.ModeloDAO();
         modeloDAO.Create(objeto);
     }
 
-    public static void Deletar(model.Modelo objeto) {
+    public static void Deletar(Modelo objeto) {
         model.DAO.ModeloDAO modeloDAO = new model.DAO.ModeloDAO();
         modeloDAO.Delete(objeto);
     }

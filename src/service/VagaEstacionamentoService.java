@@ -7,34 +7,35 @@ package service;
 
 import java.util.List;
 import model.VagaEstacionamento;
+import model.DAO.VagaEstacionamentoDAO;
 
 /**
  *
  * @author IFSC
  */
 public class VagaEstacionamentoService {
-public static void Atualizar(model.VagaEstacionamento objeto) {
-        model.DAO.VagaEstacionamentoDAO vagaEstacionamentoDAO = new model.DAO.VagaEstacionamentoDAO();
-        vagaEstacionamentoDAO.Update(objeto);
-    }
+    public static void Atualizar(VagaEstacionamento objeto) {
+            VagaEstacionamentoDAO vagaEstacionamentoDAO = new VagaEstacionamentoDAO();
+            vagaEstacionamentoDAO.Update(objeto);
+        }
 
-    public static model.VagaEstacionamento Carregar(int id) {
-        model.DAO.VagaEstacionamentoDAO vagaEstacionamentoDAO = new model.DAO.VagaEstacionamentoDAO();
-        return vagaEstacionamentoDAO.Retrieve(id);
-    }
+        public static VagaEstacionamento Carregar(int id) {
+            VagaEstacionamentoDAO vagaEstacionamentoDAO = new VagaEstacionamentoDAO();
+            return vagaEstacionamentoDAO.Retrieve(id);
+        }
 
-    public static List<VagaEstacionamento> Carregar(String atributo, String valor) {
-        model.DAO.VagaEstacionamentoDAO vagaEstacionamentoDAO = new model.DAO.VagaEstacionamentoDAO();
-        return vagaEstacionamentoDAO.Retrieve(atributo, valor);
-    }
+        public static List<VagaEstacionamento> Carregar(String atributo, String valor) {
+            VagaEstacionamentoDAO vagaEstacionamentoDAO = new VagaEstacionamentoDAO();
+            return vagaEstacionamentoDAO.Retrieve(atributo, valor);
+        }
 
-    public static void Criar(model.VagaEstacionamento objeto) {
-        model.DAO.VagaEstacionamentoDAO vagaEstacionamentoDAO = new model.DAO.VagaEstacionamentoDAO();
-        vagaEstacionamentoDAO.Create(objeto);
-    }
+        public static void Criar(VagaEstacionamento objeto) {
+            VagaEstacionamentoDAO vagaEstacionamentoDAO = new VagaEstacionamentoDAO();
+            vagaEstacionamentoDAO.Create(objeto);
+        }
 
-    public static void Deletar(model.VagaEstacionamento objeto) {
-        model.DAO.VagaEstacionamentoDAO vagaEstacionamentoDAO = new model.DAO.VagaEstacionamentoDAO();
-        vagaEstacionamentoDAO.Delete(objeto);
-    }
+        public static void Deletar(VagaEstacionamento objeto) {
+            VagaEstacionamentoDAO vagaEstacionamentoDAO = new VagaEstacionamentoDAO();
+            vagaEstacionamentoDAO.Delete(objeto);
+        }
 }
