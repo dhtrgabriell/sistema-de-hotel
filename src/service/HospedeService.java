@@ -4,7 +4,6 @@ import java.util.List;
 import model.DAO.HospedeDAO;
 import model.Hospede;
 
-
 public class HospedeService {
 
     public static void Criar(Hospede objeto) {
