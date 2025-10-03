@@ -187,7 +187,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemFuncionarioActionPerformed
         TelaCadastroFuncionario telaCadastroFuncionario = new TelaCadastroFuncionario(null, true);
-        ControllerCadFuncionario controllerFunc = new ControllerCadFuncionario(telaCadastroFuncionario);
+        ControllerCadFuncionario controllerCadFuncionario = new ControllerCadFuncionario(telaCadastroFuncionario);
         telaCadastroFuncionario.setVisible(true);
     }// GEN-LAST:event_jMenuItemFuncionarioActionPeformed
 
