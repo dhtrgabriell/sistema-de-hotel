@@ -2,12 +2,12 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Hospede;
 import view.TelaBuscaHospede;
 import view.TelaCadastroHospede;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ControllerCadHospede implements ActionListener {
 
@@ -46,8 +46,8 @@ public class ControllerCadHospede implements ActionListener {
             Date dataAtual = new Date();
             SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
             String novaData = dataFormatada.format(dataAtual);
-            this.telaCadastroHospede.getjFormattedTextFieldDataCadastro().setText(novaData);
-            this.telaCadastroHospede.getjFormattedTextFieldDataCadastro().setEnabled(false);
+            this.telaCadastroHospede.getjFormattedTextFieldDataDeCadastro().setText(novaData);
+            this.telaCadastroHospede.getjFormattedTextFieldDataDeCadastro().setEnabled(false);
 
         } else if (evento.getSource() == this.telaCadastroHospede.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), true);

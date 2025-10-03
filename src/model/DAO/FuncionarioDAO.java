@@ -1,12 +1,12 @@
 package model.DAO;
 
-import model.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Funcionario;
 
 
 public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
@@ -53,8 +53,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
             pstm.setString(12, objeto.getRg());
             pstm.setString(13, objeto.getObs());
             pstm.setString(14, String.valueOf(objeto.getStatus()));
-            pstm.setString(15, objeto.getUsuario());
-            pstm.setString(16, objeto.getSenha());
             pstm.setString(19, String.valueOf(objeto.getStatus()));
 
         } catch(SQLException ex){
@@ -116,8 +114,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
                 funcionario.setRg(rst.getString("rg"));
                 funcionario.setObs(rst.getString("obs"));
                 funcionario.setStatus(rst.getString("status").charAt(0));
-                funcionario.setUsuario(rst.getString("usuario"));
-                funcionario.setSenha(rst.getString("senha"));
 
                 return funcionario;
             }
@@ -181,8 +177,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
                 funcionario.setRg(rst.getString("rg"));
                 funcionario.setObs(rst.getString("obs"));
                 funcionario.setStatus(rst.getString("status").charAt(0));
-                funcionario.setUsuario(rst.getString("usuario"));
-                funcionario.setSenha(rst.getString("senha"));
 
                 return listaFuncionarios;
             }
@@ -239,8 +233,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario>{
             pstm.setString(11, objeto.getRg());
             pstm.setString(12, objeto.getObs());
             pstm.setString(0, String.valueOf(objeto.getStatus()));
-            pstm.setString(0, objeto.getUsuario());
-            pstm.setString(0, objeto.getSenha());
 
             
         } catch (SQLException ex) {
