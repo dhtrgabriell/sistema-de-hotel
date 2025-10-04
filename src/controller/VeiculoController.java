@@ -1,9 +1,11 @@
 package controller;
 
-import model.Veiculo;
 import java.util.ArrayList;
+import model.Veiculo;
 
 public class VeiculoController {
+        public static int codigo;
+
     private ArrayList<Veiculo> veiculos = new ArrayList<>();
 
     public void adicionarVeiculo(Veiculo veiculo) {

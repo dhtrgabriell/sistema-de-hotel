@@ -20,6 +20,20 @@ public class TelaBuscaVeiculo extends javax.swing.JDialog {
     }
 
     
+    public javax.swing.JComboBox<String> getjCBFiltro() {
+        return jCBFiltro;
+    }
+    public javax.swing.JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+
+
+    public javax.swing.JTable getjTableDados() {
+        return jTableDados;
+    }
+
+
 
     public javax.swing.JButton getjButtonCarregar() {
         return jButtonCarregar;

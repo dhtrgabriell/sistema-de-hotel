@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import model.Veiculo;
 import view.TelaBuscaVeiculo;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
 
 /**
  *
@@ -33,16 +37,13 @@ public ControllerBuscaVeiculo(TelaBuscaVeiculo telaBuscaVeiculo, ArrayList<Veicu
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == this.telaBuscaVeiculo.getjButtonCarregar()) {
-        DefaultTableModel tabelaModelo = (DefaultTableModel) this.telaBuscaVeiculo.getjTableDados().getModel();
-        tabelaModelo.setRowCount(0);
-        for (Veiculo veiculoAtual : this.listaDeVeiculos) {
-            tabelaModelo.addRow(new Object[]{
-                veiculoAtual.getId(),
-                veiculoAtual.getMarca(),
-                veiculoAtual.getModelo(),
-                veiculoAtual.getAno(),
-                veiculoAtual.getPlaca()
-            });
+            if (this.telaBuscaVeiculo.getjTableDados().getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "Erro: \nNão Existem Dados Selecionados para Edição !");
+            } else {
+                /////Retornar os dados para a tela de cadastro
+                VeiculoController.codigo = (int) this.telaBuscaVeiculo.getjTableDados().
+                        getValueAt(this.telaBuscaVeiculo.getjTableDados().getSelectedRow(), 0);
+                this.telaBuscaVeiculo.dispose();
         }
         } else if (e.getSource() == this.telaBuscaVeiculo.getjButtonFiltar()) {
             String tipoFiltro = this.telaBuscaVeiculo.getjCBFiltro().getSelectedItem().toString();
