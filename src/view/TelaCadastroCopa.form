@@ -82,7 +82,7 @@
               <Font name="Times New Roman" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cadastro Copa"/>
+            <Property name="text" type="java.lang.String" value="CADASTRO :: COPA"/>
           </Properties>
         </Component>
       </SubComponents>

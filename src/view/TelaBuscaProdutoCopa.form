@@ -78,7 +78,7 @@
               <Color blue="cc" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Buscar Produto Copa"/>
+            <Property name="text" type="java.lang.String" value="BUSCA :: PRODUTOS COPA"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>

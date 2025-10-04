@@ -47,7 +47,7 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
         jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastros :: Copa");
+        setTitle("Modelo para Cadastros");
         setResizable(false);
 
         jPanelTitulo.setBackground(new java.awt.Color(153, 153, 255));
@@ -55,7 +55,7 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Cadastro Copa");
+        jLabelTitulo.setText("CADASTRO :: COPA");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -100,10 +100,7 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIDActionPerformed(evt);
             }
-            
-        })
-        ;
-        
+        });
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);

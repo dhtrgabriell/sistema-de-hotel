@@ -59,7 +59,7 @@ public class TelaCadastroVeiculo extends javax.swing.JDialog {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("CADASTRO DE VEICULOS");
+        jLabelTitulo.setText("CADASTRO :: VEÍCULO");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -74,7 +74,7 @@ public class TelaCadastroVeiculo extends javax.swing.JDialog {
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setText("ID Viculo:");
+        jLabel1.setText("ID:");
 
         jLabel2.setText("Placa:");
 
@@ -107,12 +107,12 @@ public class TelaCadastroVeiculo extends javax.swing.JDialog {
             .addGroup(jPanelDadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                     .addComponent(jTextFieldCor)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

@@ -55,7 +55,7 @@ public class TelaCadastroVagaEstac extends javax.swing.JDialog {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Cadastro Vaga Estacionamento");
+        jLabelTitulo.setText("CADASTRO :: VAGA ESTACIONAMENTO");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);

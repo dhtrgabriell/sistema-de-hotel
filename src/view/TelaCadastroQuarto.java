@@ -62,7 +62,7 @@ public class TelaCadastroQuarto extends javax.swing.JDialog {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Cadastro Quarto");
+        jLabelTitulo.setText("CADASTRO :: QUARTO");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);

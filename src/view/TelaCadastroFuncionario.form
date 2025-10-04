@@ -82,7 +82,7 @@
               <Font name="Times New Roman" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Funcionario"/>
+            <Property name="text" type="java.lang.String" value="CADASTRO :: FUNCIONARIO"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -121,7 +121,7 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jFormattedTextField5" min="-2" pref="181" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldDataCadastro" min="-2" pref="181" max="-2" attributes="0"/>
                               <Component id="jLabelCadastro" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -239,7 +239,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -441,7 +441,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField5">
+        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldDataCadastro">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCadastro">
           <Properties>
