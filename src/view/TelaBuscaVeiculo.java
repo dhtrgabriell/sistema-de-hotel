@@ -19,6 +19,38 @@ public class TelaBuscaVeiculo extends javax.swing.JDialog {
         initComponents();
     }
 
+    
+
+    public javax.swing.JButton getjButtonCarregar() {
+        return jButtonCarregar;
+    }
+
+
+
+    public javax.swing.JButton getjButtonFiltar() {
+        return jButtonFiltar;
+    }
+
+
+
+    public javax.swing.JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+
+
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+
+
+    public javax.swing.JTextField getjTFFiltro() {
+        return jTFFiltro;
+    }
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
