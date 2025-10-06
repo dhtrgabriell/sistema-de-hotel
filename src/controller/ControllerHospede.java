@@ -1,9 +1,9 @@
 package controller;
 
-import model.Hospede;
 import java.util.ArrayList;
+import model.Hospede;
 
-public class HospedeController {
+public class ControllerHospede {
     private ArrayList<Hospede> hospedes = new ArrayList<>();
 
     public void adicionarHospede(Hospede hospede) {

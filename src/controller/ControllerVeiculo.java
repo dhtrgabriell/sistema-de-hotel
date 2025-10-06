@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 import model.Veiculo;
 
-public class VeiculoController {
+public class ControllerVeiculo {
         public static int codigo;
 
     private ArrayList<Veiculo> veiculos = new ArrayList<>();

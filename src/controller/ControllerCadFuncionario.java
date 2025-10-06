@@ -11,9 +11,7 @@ import view.*;
 /**
  *
  * @author IFSC
- * 
- */
-
+ * */
 public class ControllerCadFuncionario implements ActionListener {
 
     TelaCadastroFuncionario telaCadastroFuncionario;
@@ -23,20 +21,12 @@ public class ControllerCadFuncionario implements ActionListener {
     public ControllerCadFuncionario(TelaCadastroFuncionario telaCadastroFuncionario) {
         this.telaCadastroFuncionario = telaCadastroFuncionario;
 
-
         this.telaCadastroFuncionario.getjButtonNovo().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonCancelar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonGravar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonBuscar().addActionListener(this);
         this.telaCadastroFuncionario.getjButtonSair().addActionListener(this);
 
-        //Desenvolver as setagens de situação inicial dos componentes
-        /*this.telaCadastroFuncionario.getjButtonNovo().setEnabled(true);
-        this.telaCadastroFuncionario.getjButtonCancelar().setEnabled(false);
-        this.telaCadastroFuncionario.getjButtonGravar().setEnabled(false);
-        this.telaCadastroFuncionario.getjButtonBuscar().setEnabled(true);
-        this.telaCadastroFuncionario.getjButtonSair().setEnabled(true);*/
-        
         utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
     }
@@ -46,7 +36,7 @@ public class ControllerCadFuncionario implements ActionListener {
         if (e.getSource() == this.telaCadastroFuncionario.getjButtonNovo()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), true);
-            //Adicionei o desligamento do textfield do id e coloquei o cursor no textfield do nome
+            
             this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
             this.telaCadastroFuncionario.controlaCampos(true);
 
@@ -66,10 +56,7 @@ public class ControllerCadFuncionario implements ActionListener {
 
             codigo = -1; //invalida a busca
 
-            // 1. Cria a View (a tela)
             TelaBuscaFuncionario telaBuscaFuncionario = new TelaBuscaFuncionario(null, true);
-
-            // 3. Torna a tela visível. Agora ela tem um controller ativo.
             telaBuscaFuncionario.setVisible(true);
 
             if(codigo != -1){

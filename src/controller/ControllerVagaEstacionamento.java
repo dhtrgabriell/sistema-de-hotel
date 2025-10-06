@@ -1,9 +1,9 @@
 package controller;
 
-import model.VagaEstacionamento;
 import java.util.ArrayList;
+import model.VagaEstacionamento;
 
-public class VagaEstacionamentoController {
+public class ControllerVagaEstacionamento {
     private ArrayList<VagaEstacionamento> vagas = new ArrayList<>();
 
     public void adicionarVaga(VagaEstacionamento vaga) {

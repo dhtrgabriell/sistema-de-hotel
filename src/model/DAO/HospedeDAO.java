@@ -32,7 +32,7 @@ public class HospedeDAO implements InterfaceDAO<Hospede>{
                 + "cnpj, "
                 + "inscricao_estadual, "
                 + "contato) "
-                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
