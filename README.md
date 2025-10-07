@@ -16,7 +16,7 @@ Prof Roberval
 - [x] Busca Hóspede
 
 - [x] Cadastro Marca
-- [x] Busca Marca
+- [ ] Busca Marca
 
 - [ ] Cadastro Modelo
 - [ ] Busca Modelo
