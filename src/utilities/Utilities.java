@@ -7,7 +7,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -18,7 +17,8 @@ public class Utilities {
         Component[] vetComponentes = painel.getComponents();
         for (Component componenteAtual : vetComponentes) {
             if (componenteAtual instanceof JButton) {
-                if (((JButton) componenteAtual).getActionCommand() == "0") {
+                if (((JButton) componenteAtual).getActionCommand() == "0" || ((JButton) componenteAtual).getActionCommand() == "Novo" || ((JButton) componenteAtual).getActionCommand() == "Buscar"
+                        || ((JButton) componenteAtual).getActionCommand() == "Sair") {
                     componenteAtual.setEnabled(ativa);
                 } else {
                     componenteAtual.setEnabled(!ativa);

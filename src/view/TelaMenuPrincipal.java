@@ -157,6 +157,11 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Ajuda");
 
         jMenuItem2.setText("Sobre");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem2);
 
         jMenuBar1.add(jMenu5);
@@ -175,6 +180,13 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //GAMBIARRA
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem2ActionPerformed
+        TelaCadastroMarca telaSobre = new TelaCadastroMarca(this, true);
+            ControllerCadMarca controllerCadMarca = new ControllerCadMarca(telaSobre);
+        telaSobre.setVisible(true);
+    }// GEN-LAST:event_jMenuItem2ActionPerformed
+    
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemSairActionPerformed
         dispose();
     }// GEN-LAST:event_jMenuItemSairActionPerformed
