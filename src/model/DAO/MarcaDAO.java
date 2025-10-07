@@ -8,142 +8,111 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Marca;
 
-public class MarcaDAO implements InterfaceDAO<Marca>{
+public class MarcaDAO implements InterfaceDAO<Marca> {
 
     @Override
     public void Create(Marca objeto) {
-
-        String sqlInstrucao = "Insert into marca"
-                + "(descricao, "
-                + "status) "
-                + "values(?, ?)";
-
+        String sqlInstrucao = "Insert into marca(descricao, status) values(?, ?)";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
 
         try {
-            
             pstm = conexao.prepareStatement(sqlInstrucao);
-
             pstm.setString(1, objeto.getDescricao());
             pstm.setString(2, String.valueOf(objeto.getStatus()));
-
             pstm.execute();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
-
     }
 
     @Override
     public Marca Retrieve(int id) {
-        String sqlInstrucao = "Select "
-                + "id, "
-                + "descricao, "
-                + "status "
-                + "from marca where id = ?";
-
+        String sqlInstrucao = "Select id, descricao, status from marca where id = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
         ResultSet rst = null;
-
-        Marca marca = new Marca();
+        Marca marca = null; // Inicia como nulo
 
         try {
-
             pstm = conexao.prepareStatement(sqlInstrucao);
             pstm.setInt(1, id);
             rst = pstm.executeQuery();
 
-            while(rst.next()){
+            // CORRIGIDO: Usar 'if' para um único resultado
+            if (rst.next()) {
+                marca = new Marca(); // Cria o objeto apenas se encontrar
                 marca.setId(rst.getInt("id"));
                 marca.setDescricao(rst.getString("descricao"));
                 marca.setStatus(rst.getString("status").charAt(0));
-
-                return marca;
             }
-            
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return marca;
         }
-
+        // CORRIGIDO: Return fora do 'finally'
+        return marca;
     }
 
     @Override
     public List<Marca> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select "
-                + "id, "
-                + "descricao, "
-                + "status "
-                + "from marca where " + atributo + " like ?";
-
+        String sqlInstrucao = "Select id, descricao, status from marca where " + atributo + " like ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
         ResultSet rst = null;
-
         List<Marca> listaMarcas = new ArrayList<>();
 
         try {
-            
             pstm = conexao.prepareStatement(sqlInstrucao);
             pstm.setString(1, "%" + valor + "%");
             rst = pstm.executeQuery();
 
-            while(rst.next()){
+            while (rst.next()) {
                 Marca marca = new Marca();
-
                 marca.setId(rst.getInt("id"));
                 marca.setDescricao(rst.getString("descricao"));
                 marca.setStatus(rst.getString("status").charAt(0));
 
-                return listaMarcas;
+                // CORRIGIDO: Adiciona o item à lista em vez de retornar
+                listaMarcas.add(marca);
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return listaMarcas;
         }
-
+        // CORRIGIDO: O return da lista completa é feito aqui, fora do try-finally
+        return listaMarcas;
     }
 
     @Override
     public void Update(Marca objeto) {
-        String sqlInstrucao = "Update marca set "
-                + "descricao = ?, "
-                + "status = ? "
-                + "where id = ?";
-
+        String sqlInstrucao = "Update marca set descricao = ?, status = ? where id = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
 
         try {
-
             pstm = conexao.prepareStatement(sqlInstrucao);
 
-            pstm.setString(0, objeto.getDescricao());
-            pstm.setString(0, String.valueOf(objeto.getStatus()));
+            // CORRIGIDO: Índices ajustados para começar em 1 e adicionado o ID
+            pstm.setString(1, objeto.getDescricao());
+            pstm.setString(2, String.valueOf(objeto.getStatus()));
+            pstm.setInt(3, objeto.getId()); // Parâmetro do WHERE que faltava
 
             pstm.executeUpdate();
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
-
     }
 
     @Override
     public void Delete(Marca objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
-    
 }

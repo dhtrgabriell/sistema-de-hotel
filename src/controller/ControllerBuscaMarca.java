@@ -40,8 +40,6 @@ public class ControllerBuscaMarca implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Sem Dados para a Seleção...");
             } else {
                 if (this.telaBuscaMarca.getjCBFiltro().getSelectedIndex() == 0) {
-
-                    // Criando objeto para receber o dado que virá do banco de dados
                     Marca marca = new Marca();
 
                     //Carregando o registro do marca na entidade para o objeto marca
@@ -66,24 +64,8 @@ public class ControllerBuscaMarca implements ActionListener {
 
                     for (Marca marcaAtualDaLista : listaMarcas) {
                         //Adicionado o marca na tabela
-                        tabela.addRow(new Object[]{marcaAtualDaLista.getDescricao(),
-                            marcaAtualDaLista.getDescricao(),
-                            marcaAtualDaLista.getStatus()});
-                    }
-
-                } else if (this.telaBuscaMarca.getjCBFiltro().getSelectedIndex() == 2) {
-                    //Criando a lista para receber os marcas
-                    List<Marca> listaMarcas = new ArrayList<>();
-                    //Carregando os marcas via sl para dentro da lista
-                    listaMarcas = service.MarcaService.Carregar("id", this.telaBuscaMarca.getjTFFiltro().getText());
-
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
-                    DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaMarca.getjTableDados().getModel();
-                    tabela.setRowCount(0);
-
-                    for (Marca marcaAtualDaLista : listaMarcas) {
-                        //Adicionado o marca na tabela
-                        tabela.addRow(new Object[]{marcaAtualDaLista.getId(),
+                        tabela.addRow(new Object[]{
+                            marcaAtualDaLista.getId(),
                             marcaAtualDaLista.getDescricao(),
                             marcaAtualDaLista.getStatus()});
                     }
