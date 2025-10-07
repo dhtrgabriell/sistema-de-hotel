@@ -35,7 +35,8 @@ public class ControllerCadMarca implements ActionListener {
             utilities.Utilities.ativaDesativa(this.telaCadastroMarca.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroMarca.getjPanelDados(), true);
 
-                utilities.Utilities.ativaDesativa(this.telaCadastroMarca.getjPanelBotoes(), false);            this.telaCadastroMarca.getjTextFieldMarcaID().setEnabled(false);
+            utilities.Utilities.ativaDesativa(this.telaCadastroMarca.getjPanelBotoes(), false);
+            this.telaCadastroMarca.getjTextFieldMarcaID().setEnabled(false);
 
             this.telaCadastroMarca.getjTextFieldMarca().requestFocus();
 
@@ -46,9 +47,8 @@ public class ControllerCadMarca implements ActionListener {
 
             codigo = -1; // invalida a busca
 
-            TelaBuscaMarca telaBuscaMarca = new TelaBuscaMarca
-            (null, true);
-            //ControllerBuscaMarca controllerBuscaMarca = new ControllerBuscaMarca(telaBuscaMarca);
+            TelaBuscaMarca telaBuscaMarca = new TelaBuscaMarca(null, true);
+            ControllerBuscaMarca controllerBuscaMarca = new ControllerBuscaMarca(telaBuscaMarca);
             telaBuscaMarca.setVisible(true);
 
             if (codigo != -1) {
@@ -66,7 +66,7 @@ public class ControllerCadMarca implements ActionListener {
 
             if (this.telaCadastroMarca.getjTextFieldMarca().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O nome da marca é Obrigatório....");
-                } else {
+            } else {
                 Marca marca = new Marca();
                 marca.setDescricao(this.telaCadastroMarca.getjTextFieldMarca().getText());
 

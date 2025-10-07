@@ -14,7 +14,7 @@ public class MarcaDAO implements InterfaceDAO<Marca>{
     public void Create(Marca objeto) {
 
         String sqlInstrucao = "Insert into marca"
-                + "(descicao, "
+                + "(descricao, "
                 + "status) "
                 + "values(?, ?)";
 
