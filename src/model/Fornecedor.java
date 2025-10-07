@@ -49,6 +49,8 @@ public class Fornecedor extends Pessoa{
         this.contato = contato;
     }
 
+
+
     @Override
     public String toString() {
         return  super.toString() + 

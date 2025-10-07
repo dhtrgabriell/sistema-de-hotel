@@ -11,7 +11,7 @@ import view.*;
 /**
  *
  * @author IFSC
- * */
+ */
 public class ControllerCadFuncionario implements ActionListener {
 
     TelaCadastroFuncionario telaCadastroFuncionario;
@@ -36,9 +36,9 @@ public class ControllerCadFuncionario implements ActionListener {
         if (e.getSource() == this.telaCadastroFuncionario.getjButtonNovo()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), true);
-            
-            this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
+
             this.telaCadastroFuncionario.controlaCampos(true);
+            this.telaCadastroFuncionario.getjTextFieldId().setEnabled(false);
 
             Date dataAtual = new Date();
             SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
@@ -54,12 +54,13 @@ public class ControllerCadFuncionario implements ActionListener {
             this.telaCadastroFuncionario.controlaCampos(false);
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonBuscar()) {
 
-            codigo = -1; //invalida a busca
+            codigo = -1; // invalida a busca
 
             TelaBuscaFuncionario telaBuscaFuncionario = new TelaBuscaFuncionario(null, true);
+            ControllerBuscaFuncionario controllerBuscaFuncionario = new ControllerBuscaFuncionario(telaBuscaFuncionario);
             telaBuscaFuncionario.setVisible(true);
 
-            if(codigo != -1){
+            if (codigo != -1) {
                 utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), false);
                 utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), true);
 
@@ -72,17 +73,17 @@ public class ControllerCadFuncionario implements ActionListener {
                 this.telaCadastroFuncionario.getjFormattedTextFieldCep().setText(funcionario.getCep());
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().setText(funcionario.getNome());
                 this.telaCadastroFuncionario.getjTextFieldRg().setText(funcionario.getRg());
-                //this.telaCadastroFuncionario.getjTextFieldCpf().setText(funcionario.getCpf());
+                // this.telaCadastroFuncionario.getjTextFieldCpf().setText(funcionario.getCpf());
 
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
             }
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
 
-            if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")){
+            if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
-            } else{
+            } else {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setNome(this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText());
                 funcionario.setCep(this.telaCadastroFuncionario.getjFormattedTextFieldCep().getText());
@@ -97,7 +98,8 @@ public class ControllerCadFuncionario implements ActionListener {
                 funcionario.setLogradouro(this.telaCadastroFuncionario.getjTextFieldLogradouro().getText());
                 funcionario.setObs(this.telaCadastroFuncionario.getjTextFieldObs().getText());
                 funcionario.setRg(this.telaCadastroFuncionario.getjTextFieldRg().getText());
-                funcionario.setSexo(this.telaCadastroFuncionario.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
+                funcionario.setSexo(
+                        this.telaCadastroFuncionario.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
                 if (this.telaCadastroFuncionario.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                     // inclusão
                     funcionario.setStatus('A');
@@ -106,8 +108,10 @@ public class ControllerCadFuncionario implements ActionListener {
                     funcionario.setId(Integer.parseInt(this.telaCadastroFuncionario.getjTextFieldId().getText()));
                     service.FuncionarioService.Atualizar(funcionario);
                 }
+                
+                utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
+                utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
             }
-            
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonSair()) {
             this.telaCadastroFuncionario.dispose();

@@ -206,6 +206,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemFornecedorActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemFornecedorActionPerformed
         // to do : sem controller
         TelaCadastroFornecedor telaCadastroFornecedor = new TelaCadastroFornecedor(null, true);
+
+        ControllerCadFornecedor controllerCadFornecedor = new ControllerCadFornecedor(telaCadastroFornecedor);
         telaCadastroFornecedor.setVisible(true);
     }// GEN-LAST:event_jMenuItemFornecedorActionPerformed
 
@@ -214,6 +216,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         TelaCadastroQuarto telaCadastroQuarto = new TelaCadastroQuarto(null, true);
         telaCadastroQuarto.setVisible(true);
     }// GEN-LAST:event_jMenuItemQuartoActionPerformed
+
     private void jMenuItemEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemEstacionamentoActionPerformed
         // to do : sem controller
         TelaCadastroVagaEstac telaCadastroEstacionamento = new TelaCadastroVagaEstac(null, true);
