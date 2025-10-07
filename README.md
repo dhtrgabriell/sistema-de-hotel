@@ -3,9 +3,32 @@ Prof Roberval
 ---
 
 ## 🚧 A Fazer
-- [ ] Terminar cadastro
-- [ ] Controllers
-- [ ] Fix nas views
+- [ ] Cadastro Copa
+- [ ] Busca Copa
+
+- [x] Cadastro Fornecedor
+- [x] Busca Fornecedor
+
+- [x] Cadastro Funcionário
+- [x] Busca Funcionário
+
+- [x] Cadastro Hóspede
+- [x] Busca Hóspede
+
+- [ ] Cadastro Marca
+- [ ] Busca Marca
+
+- [ ] Cadastro Modelo
+- [ ] Busca Modelo
+
+- [ ] Cadastro Quarto
+- [ ] Busca Quarto
+
+- [ ] Cadastro Vaga
+- [ ] Busca Vaga
+
+- [ ] Cadastro Veículo
+- [ ] Busca Veículo
 ---
 
 ## 🐛 Bugs Conhecidos
