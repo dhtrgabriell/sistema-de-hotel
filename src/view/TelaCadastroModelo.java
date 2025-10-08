@@ -19,6 +19,50 @@ public class TelaCadastroModelo extends javax.swing.JDialog {
         initComponents();
     }
 
+    public javax.swing.JButton getjButtonBuscar() {
+        return jButtonBuscar;
+    }
+
+    public javax.swing.JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public javax.swing.JButton getjButtonGravar() {
+        return jButtonGravar;
+    }
+
+    public javax.swing.JButton getjButtonNovaMarca() {
+        return jButtonNovaMarca;
+    }
+
+    public javax.swing.JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public javax.swing.JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public javax.swing.JComboBox<String> getjComboBoxMarca() {
+        return jComboBoxMarca;
+    }
+
+    public javax.swing.JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public javax.swing.JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+    public javax.swing.JTextField getjTextFieldID() {
+        return jTextFieldID;
+    }
+
+    public javax.swing.JTextField getjTextFieldModelo() {
+        return jTextFieldModelo;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -182,8 +182,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
     //GAMBIARRA
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem2ActionPerformed
-        TelaCadastroMarca telaSobre = new TelaCadastroMarca(this, true);
-            ControllerCadMarca controllerCadMarca = new ControllerCadMarca(telaSobre);
+        TelaCadastroModelo telaSobre = new TelaCadastroModelo(this, true);
+            ControllerCadModelo controllerCadModelo = new ControllerCadModelo(telaSobre);
         telaSobre.setVisible(true);
     }// GEN-LAST:event_jMenuItem2ActionPerformed
     

@@ -18,8 +18,8 @@ Prof Roberval
 - [x] Cadastro Marca
 - [x] Busca Marca
 
-- [ ] Cadastro Modelo
-- [ ] Busca Modelo
+- [x] Cadastro Modelo
+- [x] Busca Modelo
 
 - [ ] Cadastro Quarto
 - [ ] Busca Quarto
