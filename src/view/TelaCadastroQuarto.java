@@ -18,6 +18,70 @@ public class TelaCadastroQuarto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
+    public javax.swing.JButton getjButtonBuscar() {
+        return jButtonBuscar;
+    }
+
+    public javax.swing.JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public javax.swing.JButton getjButtonGravar() {
+        return jButtonGravar;
+    }
+
+    public javax.swing.JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public javax.swing.JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public javax.swing.JCheckBox getjCheckBox1() {
+        return jCheckBox1;
+    }
+
+    public javax.swing.JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public javax.swing.JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+    public javax.swing.JPanel getjPanelTitulo() {
+        return jPanelTitulo;
+    }
+
+    public javax.swing.JSpinner getjSpinnerAndar() {
+        return jSpinnerAndar;
+    }
+
+    public javax.swing.JSpinner getjSpinnerCapacidade() {
+        return jSpinnerCapacidade;
+    }
+
+    public javax.swing.JTextField getjTextFieldDescricao() {
+        return jTextFieldDescricao;
+    }
+
+    public javax.swing.JTextField getjTextFieldID() {
+        return jTextFieldID;
+    }
+
+    public javax.swing.JTextField getjTextFieldIdentificacao() {
+        return jTextFieldIdentificacao;
+    }
+
+    public javax.swing.JTextField getjTextFieldMetragem() {
+        return jTextFieldMetragem;
+    }
+
+    public javax.swing.JTextField getjTextFieldOBS() {
+        return jTextFieldOBS;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

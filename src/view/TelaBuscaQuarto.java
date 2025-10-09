@@ -18,6 +18,52 @@ public class TelaBuscaQuarto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
+
+    public javax.swing.JButton getjButtonCarregar() {
+        return jButtonCarregar;
+    }
+
+
+    public javax.swing.JButton getjButtonFiltar() {
+        return jButtonFiltar;
+    }
+
+
+    public javax.swing.JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+
+    public javax.swing.JComboBox<String> getjCBFiltro() {
+        return jCBFiltro;
+    }
+
+
+    public javax.swing.JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+
+    public javax.swing.JPanel getjPanelFiltros() {
+        return jPanelFiltros;
+    }
+
+
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+
+    public javax.swing.JTextField getjTFFiltro() {
+        return jTFFiltro;
+    }
+
+
+    public javax.swing.JTable getjTableDados() {
+        return jTableDados;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

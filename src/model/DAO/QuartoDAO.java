@@ -188,7 +188,7 @@ public class QuartoDAO implements InterfaceDAO<Quarto>{
 
     @Override
     public void Delete(Quarto objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

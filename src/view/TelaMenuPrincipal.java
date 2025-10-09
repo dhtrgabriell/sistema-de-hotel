@@ -228,6 +228,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemQuartoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemQuartoActionPerformed
         // to do : sem controller
         TelaCadastroQuarto telaCadastroQuarto = new TelaCadastroQuarto(null, true);
+        ControllerCadQuarto controllerCadQuarto = new ControllerCadQuarto(telaCadastroQuarto);
         telaCadastroQuarto.setVisible(true);
     }// GEN-LAST:event_jMenuItemQuartoActionPerformed
 
