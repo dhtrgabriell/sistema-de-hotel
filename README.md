@@ -27,8 +27,8 @@ Prof Roberval
 - [ ] Cadastro Vaga
 - [ ] Busca Vaga
 
-- [ ] Cadastro Veículo
-- [ ] Busca Veículo
+- [x] Cadastro Veículo
+- [x] Busca Veículo
 ---
 
 ## 🐛 Bugs Conhecidos
