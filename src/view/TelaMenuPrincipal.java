@@ -206,7 +206,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemCopaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemCopaActionPerformed
         TelaCadastroCopa telaCadastroCopa = new TelaCadastroCopa(this, true);
-        ProdutoCopaController controllerCadCopa = new ProdutoCopaController(telaCadastroCopa);
+        ControllerCadProdutoCopa controllerCadCopa = new ControllerCadProdutoCopa(telaCadastroCopa);
         telaCadastroCopa.setVisible(true);
     }// GEN-LAST:event_jMenuItemCopaActionPerformedD
 

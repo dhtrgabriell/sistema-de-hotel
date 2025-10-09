@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author house
@@ -18,6 +20,7 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -352,5 +355,13 @@ public class TelaCadastroCopa extends javax.swing.JDialog {
 
     public void setjTextFieldValor(javax.swing.JTextField jTextFieldValor) {
         this.jTextFieldValor = jTextFieldValor;
+    }
+
+    public JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
     }
 }

@@ -5,6 +5,13 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author house
@@ -18,7 +25,7 @@ public class TelaBuscaProdutoCopa extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -255,4 +262,36 @@ public class TelaBuscaProdutoCopa extends javax.swing.JDialog {
     private javax.swing.JTextField jTFFiltro;
     private javax.swing.JTable jTableDados;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getjButtonCarregar() {
+        return jButtonCarregar;
+    }
+
+    public JButton getjButtonFiltar() {
+        return jButtonFiltar;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public JComboBox<String> getjCBFiltro() {
+        return jCBFiltro;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JTextField getjTFFiltro() {
+        return jTFFiltro;
+    }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
 }

@@ -3,8 +3,8 @@ Prof Roberval
 ---
 
 ## 🚧 A Fazer
-- [ ] Cadastro Copa
-- [ ] Busca Copa
+- [x] Cadastro Copa
+- [x] Busca Copa
 
 - [x] Cadastro Fornecedor
 - [x] Busca Fornecedor
