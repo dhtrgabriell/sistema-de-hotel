@@ -53,7 +53,6 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: Return fora do 'finally'
         return marca;
     }
 
@@ -76,7 +75,6 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
                 marca.setDescricao(rst.getString("descricao"));
                 marca.setStatus(rst.getString("status").charAt(0));
 
-                // CORRIGIDO: Adiciona o item à lista em vez de retornar
                 listaMarcas.add(marca);
             }
         } catch (SQLException ex) {
@@ -84,7 +82,6 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: O return da lista completa é feito aqui, fora do try-finally
         return listaMarcas;
     }
 
@@ -97,7 +94,6 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
 
-            // CORRIGIDO: Índices ajustados para começar em 1 e adicionado o ID
             pstm.setString(1, objeto.getDescricao());
             pstm.setString(2, String.valueOf(objeto.getStatus()));
             pstm.setInt(3, objeto.getId()); // Parâmetro do WHERE que faltava

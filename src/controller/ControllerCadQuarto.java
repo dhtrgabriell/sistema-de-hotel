@@ -51,13 +51,11 @@ public class ControllerCadQuarto implements ActionListener {
                 this.telaCadQuarto.getjTextFieldID().setText(String.valueOf(quarto.getId()));
                 this.telaCadQuarto.getjTextFieldDescricao().setText(quarto.getDescricao());
                 
-                // CORRIGIDO: Use setValue() para JSpinner
                 this.telaCadQuarto.getjSpinnerCapacidade().setValue(quarto.getCapacidadeHospedes());
                 
                 this.telaCadQuarto.getjTextFieldMetragem().setText(String.valueOf(quarto.getMetragem()));
                 this.telaCadQuarto.getjTextFieldIdentificacao().setText(quarto.getIdentificacao());
 
-                // CORRIGIDO: Use setValue() para JSpinner
                 this.telaCadQuarto.getjSpinnerAndar().setValue(quarto.getAndar());
 
                 this.telaCadQuarto.getjCheckBox1().setSelected(quarto.isFlagAnimais());
@@ -76,10 +74,8 @@ public class ControllerCadQuarto implements ActionListener {
                 quarto.setFlagAnimais(this.telaCadQuarto.getjCheckBox1().isSelected());
                 quarto.setStatus('A');
                 try {
-                    // CORRIGIDO: Use getValue() e faça o cast para (int)
                     quarto.setCapacidadeHospedes((int) this.telaCadQuarto.getjSpinnerCapacidade().getValue());
                     quarto.setMetragem(Float.parseFloat(this.telaCadQuarto.getjTextFieldMetragem().getText()));
-                    // CORRIGIDO: Use getValue() e faça o cast para (int)
                     quarto.setAndar((int) this.telaCadQuarto.getjSpinnerAndar().getValue());
 
                     if (this.telaCadQuarto.getjTextFieldID().getText().isEmpty()) {

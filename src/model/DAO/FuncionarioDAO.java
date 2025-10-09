@@ -12,7 +12,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
 
     @Override
     public void Create(Funcionario objeto) {
-        // CORRIGIDO: Removido usuario e senha. Agora são 14 colunas e 14 '?'
         String sqlInstrucao = "Insert into funcionario"
                 + "(nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, "
                 + "data_cadastro, cpf, rg, obs, status) "
@@ -24,7 +23,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
 
-            // CORRIGIDO: Sequência de parâmetros ajustada de 1 a 14
             pstm.setString(1, objeto.getNome());
             pstm.setString(2, objeto.getFone());
             pstm.setString(3, objeto.getFone2());
@@ -51,7 +49,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
 
     @Override
     public Funcionario Retrieve(int id) {
-        // CORRIGIDO: Removido usuario e senha do SELECT
         String sqlInstrucao = "Select id, nome, fone, fone2, email, cep, logradouro, bairro, cidade, "
                 + "complemento, data_cadastro, cpf, rg, obs, status "
                 + "from funcionario where id = ?";
@@ -66,7 +63,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
             pstm.setInt(1, id);
             rst = pstm.executeQuery();
 
-            // CORRIGIDO: Lógica ajustada para if(rst.next())
             if (rst.next()) {
                 funcionario = new Funcionario(); // Inicializa o objeto APENAS se encontrar
                 funcionario.setId(rst.getInt("id"));
@@ -90,13 +86,11 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: return fora do 'finally'
         return funcionario;
     }
 
     @Override
     public List<Funcionario> Retrieve(String atributo, String valor) {
-        // CORRIGIDO: Removido usuario e senha do SELECT
         String sqlInstrucao = "Select id, nome, fone, fone2, email, cpf, rg, status "
                 + "from funcionario where " + atributo + " like ?";
 
@@ -121,7 +115,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
                 funcionario.setRg(rst.getString("rg"));
                 funcionario.setStatus(rst.getString("status").charAt(0));
                 
-                // CORRIGIDO: Adiciona à lista em vez de retornar
                 listaFuncionarios.add(funcionario);
             }
         } catch (SQLException ex) {
@@ -129,13 +122,11 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: return da lista completa aqui.
         return listaFuncionarios;
     }
 
     @Override
     public void Update(Funcionario objeto) {
-        // CORRIGIDO: Removido usuario e senha do UPDATE
         String sqlInstrucao = "Update funcionario set nome = ?, fone = ?, fone2 = ?, email = ?, "
                 + "cep = ?, logradouro = ?, bairro = ?, cidade = ?, complemento = ?, "
                 + "data_cadastro = ?, cpf = ?, rg = ?, obs = ?, status = ? "
@@ -147,7 +138,6 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
             
-            // CORRIGIDO: Índices de 1 a 15 (14 para SET + 1 para WHERE)
             pstm.setString(1, objeto.getNome());
             pstm.setString(2, objeto.getFone());
             pstm.setString(3, objeto.getFone2());

@@ -60,7 +60,6 @@ public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento> {
 
     @Override
     public List<VagaEstacionamento> Retrieve(String atributo, String valor) {
-        // CORRIGIDO: A consulta agora é dinâmica
         String sqlInstrucao = "SELECT * FROM vaga_estacionamento WHERE " + atributo + " LIKE ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -69,7 +68,6 @@ public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento> {
 
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
-            // CORRIGIDO: Adicionado o '%' para a busca LIKE
             pstm.setString(1, "%" + valor + "%");
             rst = pstm.executeQuery();
 
@@ -87,7 +85,6 @@ public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: O return da lista completa é feito aqui
         return listaVagas;
     }
 

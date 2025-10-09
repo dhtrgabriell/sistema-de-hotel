@@ -58,7 +58,7 @@ public class TelaBuscaMarca extends javax.swing.JDialog {
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 51, 204));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("BUSCA :: MARCAS"); // TÍTULO CORRIGIDO
+        jLabelTitulo.setText("BUSCA :: MARCAS"); 
         jLabelTitulo.setToolTipText("");
 
         javax.swing.GroupLayout jPaneltituloLayout = new javax.swing.GroupLayout(jPaneltitulo);
@@ -74,7 +74,6 @@ public class TelaBuscaMarca extends javax.swing.JDialog {
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        // TABELA CORRIGIDA
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

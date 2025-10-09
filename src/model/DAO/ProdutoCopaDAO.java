@@ -12,7 +12,6 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa> {
 
     @Override
     public void Create(ProdutoCopa objeto) {
-        // CORRIGIDO: Alterado 'descricao' para 'decricao' para bater com o seu SQL
         String sql = "INSERT INTO produto_copa (decricao, valor, obs, status) VALUES (?, ?, ?, ?)";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -32,7 +31,6 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa> {
 
     @Override
     public ProdutoCopa Retrieve(int id) {
-        // CORRIGIDO: Alterado 'descricao' para 'decricao'
         String sql = "SELECT id, decricao, valor, obs, status FROM produto_copa WHERE id = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -46,7 +44,7 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa> {
             if (rst.next()) {
                 produtoCopa = new ProdutoCopa();
                 produtoCopa.setId(rst.getInt("id"));
-                produtoCopa.setDescricao(rst.getString("decricao")); // CORRIGIDO
+                produtoCopa.setDescricao(rst.getString("decricao")); 
                 produtoCopa.setPreco(rst.getDouble("valor"));
                 produtoCopa.setObs(rst.getString("obs"));
                 produtoCopa.setStatus(rst.getString("status").charAt(0));
@@ -61,7 +59,6 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa> {
 
     @Override
     public List<ProdutoCopa> Retrieve(String atributo, String valor) {
-        // CORRIGIDO: Alterado 'descricao' para 'decricao'
         String sql = "SELECT id, decricao, valor, obs, status FROM produto_copa WHERE " + atributo + " LIKE ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
@@ -76,7 +73,7 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa> {
             while (rst.next()) {
                 ProdutoCopa produtoCopa = new ProdutoCopa();
                 produtoCopa.setId(rst.getInt("id"));
-                produtoCopa.setDescricao(rst.getString("decricao")); // CORRIGIDO
+                produtoCopa.setDescricao(rst.getString("decricao")); 
                 produtoCopa.setPreco(rst.getDouble("valor"));
                 produtoCopa.setObs(rst.getString("obs"));
                 produtoCopa.setStatus(rst.getString("status").charAt(0));
@@ -92,7 +89,6 @@ public class ProdutoCopaDAO implements InterfaceDAO<ProdutoCopa> {
 
     @Override
     public void Update(ProdutoCopa objeto) {
-        // CORRIGIDO: Alterado 'descricao' para 'decricao'
         String sql = "UPDATE produto_copa SET decricao = ?, valor = ?, obs = ?, status = ? WHERE id = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;

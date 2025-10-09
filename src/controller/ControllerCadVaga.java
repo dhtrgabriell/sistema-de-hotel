@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
-import model.VagaEstacionamento; // CORRIGIDO: Usando o modelo correto
+import model.VagaEstacionamento; 
 import view.*;
 
 public class ControllerCadVaga implements ActionListener {
@@ -73,7 +73,6 @@ public class ControllerCadVaga implements ActionListener {
                 vaga.setObs(this.telaCadastroVagaEstac.getjTextFieldObs().getText());
                 vaga.setStatus('A'); // Ou o status que vier da tela
 
-                // CORRIGIDO: Conversão de String para float com tratamento de erro
                 try {
                     float metragem = Float.parseFloat(this.telaCadastroVagaEstac.getjTextFieldMetragem().getText());
                     vaga.setMetragemVaga(metragem);

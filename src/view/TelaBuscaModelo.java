@@ -20,7 +20,7 @@ public class TelaBuscaModelo extends javax.swing.JDialog {
     /**
      * Creates new form ModeloBuscas_2024
      */
-    public TelaBuscaModelo(java.awt.Frame parent, boolean modal) { // CONSTRUTOR CORRIGIDO
+    public TelaBuscaModelo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -56,10 +56,10 @@ public class TelaBuscaModelo extends javax.swing.JDialog {
         jPaneltitulo.setBackground(new java.awt.Color(153, 255, 102));
         jPaneltitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jLabelTitulo.setForeground(new java.awt.Color(0, 51, 204));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("BUSCA :: MODELOS"); // TÍTULO CORRIGIDO PARA MODELO
+        jLabelTitulo.setText("BUSCA :: MODELOS"); 
         jLabelTitulo.setToolTipText("");
 
         javax.swing.GroupLayout jPaneltituloLayout = new javax.swing.GroupLayout(jPaneltitulo);
@@ -75,7 +75,6 @@ public class TelaBuscaModelo extends javax.swing.JDialog {
 
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        // TABELA CORRIGIDA PARA MODELO
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -107,7 +106,6 @@ public class TelaBuscaModelo extends javax.swing.JDialog {
 
         jPanelFiltros.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        // FILTROS CORRIGIDOS PARA MODELO
         jCBFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descricao", "Marca" }));
 
         jLabelFiltrar.setText("Filtrar Por");

@@ -69,7 +69,6 @@ public class ControllerCadVeiculo implements ActionListener {
                 veiculo.setPlaca(this.telaCadastroVeiculo.getjTextFieldPlaca().getText());
                 veiculo.setCor(this.telaCadastroVeiculo.getjTextFieldCor().getText());
 
-                // CORRIGIDO: Pega a string do ComboBox, busca o objeto Modelo e o associa ao
                 // Veiculo
                 String modeloSelecionadoStr = this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedItem()
                         .toString();
@@ -93,7 +92,6 @@ public class ControllerCadVeiculo implements ActionListener {
 
             codigo = 0;
 
-            // CORRIGIDO: Passa o atributo com o apelido da tabela para evitar ambiguidade
             List<Veiculo> listaDeVeiculos = service.VeiculoService.Carregar("v.placa", "");
 
             TelaBuscaVeiculo telaBuscaVeiculo = new TelaBuscaVeiculo(null, true);

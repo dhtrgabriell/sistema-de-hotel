@@ -29,7 +29,7 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo> {
             if (objeto.getFornecedor() != null) pstm.setInt(6, objeto.getFornecedor().getId()); else pstm.setNull(6, java.sql.Types.INTEGER);
             if (objeto.getHospede() != null) pstm.setInt(7, objeto.getHospede().getId()); else pstm.setNull(7, java.sql.Types.INTEGER);
 
-            pstm.executeUpdate(); // CORRIGIDO
+            pstm.executeUpdate(); 
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {

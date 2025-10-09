@@ -12,7 +12,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
 
     @Override
     public void Create(Fornecedor objeto) {
-        // CORRIGIDO: 18 colunas e 18 '?' nos valores
         String sqlInstrucao = "Insert into fornecedor"
                 + "(nome, fone, fone2, email, cep, logradouro, bairro, cidade, complemento, "
                 + "data_cadastro, cpf, rg, obs, status, razao_social, cnpj, "
@@ -25,7 +24,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
 
-            // CORRIGIDO: Sequência de parâmetros ajustada
             pstm.setString(1, objeto.getNome());
             pstm.setString(2, objeto.getFone()); // Verifique se é getFone1() ou getFone()
             pstm.setString(3, objeto.getFone2());
@@ -40,10 +38,10 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             pstm.setString(12, objeto.getRg());
             pstm.setString(13, objeto.getObs());
             pstm.setString(14, String.valueOf(objeto.getStatus()));
-            pstm.setString(15, objeto.getRazaoSocial()); // Corrigido de 17 para 15
-            pstm.setString(16, objeto.getCnpj());         // Corrigido de 18 para 16
-            pstm.setString(17, objeto.getInscricaoEstadual()); // Corrigido de 19 para 17
-            pstm.setString(18, objeto.getContato());      // Corrigido de 20 para 18
+            pstm.setString(15, objeto.getRazaoSocial()); 
+            pstm.setString(16, objeto.getCnpj());        
+            pstm.setString(17, objeto.getInscricaoEstadual());
+            pstm.setString(18, objeto.getContato());      
 
             pstm.execute();
 
@@ -70,7 +68,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             pstm.setInt(1, id);
             rst = pstm.executeQuery();
 
-            // CORRIGIDO: Lógica invertida. Deve ser if(rst.next()) para um único resultado.
             if (rst.next()) {
                 fornecedor.setId(rst.getInt("id")); // Adicionado o ID
                 fornecedor.setNome(rst.getString("nome"));
@@ -85,7 +82,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: return fora do 'finally'
         return fornecedor;
     }
 
@@ -113,7 +109,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
                 fornecedor.setCnpj(rst.getString("cnpj"));
                 // ... continue preenchendo todos os outros campos aqui
 
-                // CORRIGIDO: Adiciona à lista em vez de retornar
                 listaFornecedor.add(fornecedor);
             }
         } catch (SQLException ex) {
@@ -121,7 +116,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
         }
-        // CORRIGIDO: return da lista completa aqui fora.
         return listaFornecedor;
     }
 
@@ -138,7 +132,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
 
-            // CORRIGIDO: Índices ajustados para começar em 1
             pstm.setString(1, objeto.getNome());
             pstm.setString(2, objeto.getFone());
             pstm.setString(3, objeto.getFone2());
@@ -157,7 +150,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             pstm.setString(16, objeto.getCnpj());
             pstm.setString(17, objeto.getInscricaoEstadual());
             pstm.setString(18, objeto.getContato());
-            // CORRIGIDO: Adicionado o parâmetro do 'id' para a cláusula WHERE
             pstm.setInt(19, objeto.getId());
 
             pstm.executeUpdate(); // Use executeUpdate() para INSERT, UPDATE, DELETE
