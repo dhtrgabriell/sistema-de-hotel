@@ -18,7 +18,6 @@ public class ControllerCadVeiculo implements ActionListener {
     public ControllerCadVeiculo(TelaCadastroVeiculo telaCadastroVeiculo) {
         this.telaCadastroVeiculo = telaCadastroVeiculo;
 
-        // Adiciona os listeners
         this.telaCadastroVeiculo.getjButtonNovo().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonCancelar().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonGravar().addActionListener(this);
@@ -26,14 +25,12 @@ public class ControllerCadVeiculo implements ActionListener {
         this.telaCadastroVeiculo.getjButtonSair().addActionListener(this);
         this.telaCadastroVeiculo.getjButtonNovoModelo().addActionListener(this);
 
-        // Preenche o ComboBox de Modelos
         preencheComboBoxModelos();
 
         utilities.Utilities.ativaDesativa(this.telaCadastroVeiculo.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), false);
     }
 
-    // MÉTODO NOVO PARA POPULAR O COMBOBOX DE MODELOS
     private void preencheComboBoxModelos() {
         this.telaCadastroVeiculo.getjComboBoxModelo().removeAllItems();
         this.telaCadastroVeiculo.getjComboBoxModelo().addItem("Selecione um Modelo");
@@ -51,7 +48,7 @@ public class ControllerCadVeiculo implements ActionListener {
             utilities.Utilities.limpaComponentes(this.telaCadastroVeiculo.getjPanelDados(), true);
             this.telaCadastroVeiculo.getjTextFieldId().setEnabled(false);
             this.telaCadastroVeiculo.getjTextFieldPlaca().requestFocus();
-            preencheComboBoxModelos(); // Atualiza a lista de modelos
+            preencheComboBoxModelos();
 
         } else if (evento.getSource() == this.telaCadastroVeiculo.getjButtonCancelar()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroVeiculo.getjPanelBotoes(), true);
@@ -69,18 +66,15 @@ public class ControllerCadVeiculo implements ActionListener {
                 veiculo.setPlaca(this.telaCadastroVeiculo.getjTextFieldPlaca().getText());
                 veiculo.setCor(this.telaCadastroVeiculo.getjTextFieldCor().getText());
 
-                // Veiculo
                 String modeloSelecionadoStr = this.telaCadastroVeiculo.getjComboBoxModelo().getSelectedItem()
                         .toString();
                 Modelo modeloSelecionadoObj = service.ModelService.Carregar("m.descricao", modeloSelecionadoStr).get(0);
                 veiculo.setModelo(modeloSelecionadoObj);
 
                 if (this.telaCadastroVeiculo.getjTextFieldId().getText().trim().isEmpty()) {
-                    // Inclusão
                     veiculo.setStatus('A');
                     service.VeiculoService.Criar(veiculo);
                 } else {
-                    // Atualização
                     veiculo.setId(Integer.parseInt(this.telaCadastroVeiculo.getjTextFieldId().getText()));
                     service.VeiculoService.Atualizar(veiculo);
                 }
@@ -117,11 +111,9 @@ public class ControllerCadVeiculo implements ActionListener {
         } else if (evento.getSource() == this.telaCadastroVeiculo.getjButtonSair()) {
             this.telaCadastroVeiculo.dispose();
         } else if (evento.getSource() == this.telaCadastroVeiculo.getjButtonNovoModelo()) {
-            // Abre a tela de cadastro de modelo
             TelaCadastroModelo telaCadastroModelo = new TelaCadastroModelo(null, true);
             ControllerCadModelo controllerCadModelo = new ControllerCadModelo(telaCadastroModelo);
             telaCadastroModelo.setVisible(true);
-            // Após fechar a tela de modelo, atualiza o ComboBox
             preencheComboBoxModelos();
         }
     }

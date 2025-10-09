@@ -35,7 +35,7 @@ public class VagaEstacionamentoDAO implements InterfaceDAO<VagaEstacionamento> {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
         ResultSet rst = null;
-        VagaEstacionamento vaga = null; // Inicia como nulo
+        VagaEstacionamento vaga = null;
 
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);

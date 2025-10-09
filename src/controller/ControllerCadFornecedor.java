@@ -8,10 +8,6 @@ import javax.swing.JOptionPane;
 import model.Fornecedor;
 import view.*;
 
-/**
- *
- * @author IFSC
- */
 public class ControllerCadFornecedor implements ActionListener {
 
     TelaCadastroFornecedor telaCadastroFornecedor;
@@ -54,7 +50,7 @@ public class ControllerCadFornecedor implements ActionListener {
             this.telaCadastroFornecedor.controlaCampos(false);
         } else if (e.getSource() == this.telaCadastroFornecedor.getjButtonBuscar()) {
 
-            codigo = -1; // invalida a busca
+            codigo = -1;
 
             TelaBuscaFornecedor telaBuscaFornecedor = new TelaBuscaFornecedor
             (null, true);
@@ -74,7 +70,6 @@ public class ControllerCadFornecedor implements ActionListener {
                 this.telaCadastroFornecedor.getjFormattedTextFieldCep().setText(fornecedor.getCep());
                 this.telaCadastroFornecedor.getjTextFieldNomeFantasia().setText(fornecedor.getNome());
                 this.telaCadastroFornecedor.getjTextFieldRg().setText(fornecedor.getRg());
-                // this.telaCadastroFornecedor.getjTextFieldCpf().setText(fornecedor.getCpf());
 
                 this.telaCadastroFornecedor.getjTextFieldNomeFantasia().requestFocus();
             }
@@ -101,7 +96,6 @@ public class ControllerCadFornecedor implements ActionListener {
                 fornecedor.setRg(this.telaCadastroFornecedor.getjTextFieldRg().getText());
 
                 if (this.telaCadastroFornecedor.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
-                    // inclusão
                     fornecedor.setStatus('A');
                     service.FornecedorService.Criar(fornecedor);
                 } else {

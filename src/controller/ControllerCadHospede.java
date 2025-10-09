@@ -24,14 +24,6 @@ public class ControllerCadHospede implements ActionListener {
         this.telaCadastroHospede.getjButtonBuscar().addActionListener(this);
         this.telaCadastroHospede.getjButtonSair().addActionListener(this);
 
-        // Desenvolver as setagens de situação inicial dos componentes
-        /*
-         * this.telaCadastroHospede.getjButtonNovo().setEnabled(true);
-         * this.telaCadastroHospede.getjButtonCancelar().setEnabled(false);
-         * this.telaCadastroHospede.getjButtonGravar().setEnabled(false);
-         * this.telaCadastroHospede.getjButtonBuscar().setEnabled(true);
-         * this.telaCadastroHospede.getjButtonSair().setEnabled(true);
-         */
         utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), true);
         utilities.Utilities.limpaComponentes(this.telaCadastroHospede.getjPanelDados(), false);
     }
@@ -41,8 +33,6 @@ public class ControllerCadHospede implements ActionListener {
         if (evento.getSource() == this.telaCadastroHospede.getjButtonNovo()) {
             utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), false);
             utilities.Utilities.limpaComponentes(this.telaCadastroHospede.getjPanelDados(), true);
-            // Adicionei o desligamento do textfield do id e coloquei o cursor no textfield
-            // do nome fantasia
             this.telaCadastroHospede.getjTextFieldId().setEnabled(false);
             this.telaCadastroHospede.getjTextFieldNomeFantasia().requestFocus();
 
@@ -81,7 +71,6 @@ public class ControllerCadHospede implements ActionListener {
                 hospede.setSexo(this.telaCadastroHospede.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
 
                 if (this.telaCadastroHospede.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
-                    // inclusão
                     hospede.setStatus('A');
                     service.HospedeService.Criar(hospede);
                 } else {
@@ -115,7 +104,6 @@ public class ControllerCadHospede implements ActionListener {
                 this.telaCadastroHospede.getjTextFieldRazaoSocial().setText(hospede.getRazaoSocial());
                 this.telaCadastroHospede.getjFormattedTextFieldCpf().setText(hospede.getCpf());
 
-                // carregar os dados para os containers faltantes
                 this.telaCadastroHospede.getjTextFieldNomeFantasia().requestFocus();
 
             }

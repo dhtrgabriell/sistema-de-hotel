@@ -108,7 +108,6 @@ public class ControllerCadModelo implements ActionListener {
             TelaCadastroMarca telaCadastroMarca = new TelaCadastroMarca(null, true);
             ControllerCadMarca controllerCadMarca = new ControllerCadMarca(telaCadastroMarca);
             telaCadastroMarca.setVisible(true);
-            // Após cadastrar uma nova marca, atualiza a lista no ComboBox
             preencheComboBoxMarcas();
         }
     }

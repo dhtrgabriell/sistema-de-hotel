@@ -24,7 +24,6 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo> {
             pstm.setString(3, String.valueOf(objeto.getStatus()));
             pstm.setInt(4, objeto.getModelo().getId());
             
-            // Lógica para chaves estrangeiras que podem ser nulas
             if (objeto.getFuncionario() != null) pstm.setInt(5, objeto.getFuncionario().getId()); else pstm.setNull(5, java.sql.Types.INTEGER);
             if (objeto.getFornecedor() != null) pstm.setInt(6, objeto.getFornecedor().getId()); else pstm.setNull(6, java.sql.Types.INTEGER);
             if (objeto.getHospede() != null) pstm.setInt(7, objeto.getHospede().getId()); else pstm.setNull(7, java.sql.Types.INTEGER);
@@ -39,11 +38,9 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo> {
 
     @Override
     public Veiculo Retrieve(int id) {
-        // SQL com todos os JOINs necessários
         String sql = "SELECT v.id AS veiculo_id, v.placa, v.cor, v.status AS veiculo_status, "
                    + "mo.id AS modelo_id, mo.descricao AS modelo_descricao, "
                    + "ma.id AS marca_id, ma.descricao AS marca_descricao "
-                   // Adicione JOINs para funcionario, fornecedor, hospede se precisar dos dados deles
                    + "FROM veiculo v "
                    + "JOIN modelo mo ON v.modelo_id = mo.id "
                    + "JOIN marca ma ON mo.marca_id = ma.id "
@@ -76,7 +73,6 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo> {
                 veiculo.setCor(rst.getString("cor"));
                 veiculo.setStatus(rst.getString("veiculo_status").charAt(0));
                 veiculo.setModelo(modelo);
-                // Carregar funcionario, fornecedor, hospede se eles estiverem no SELECT
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -88,11 +84,9 @@ public class VeiculoDAO implements InterfaceDAO<Veiculo> {
 
     @Override
     public List<Veiculo> Retrieve(String atributo, String valor) {
-        // SQL com todos os JOINs necessários
         String sql = "SELECT v.id AS veiculo_id, v.placa, v.cor, v.status AS veiculo_status, "
                    + "mo.id AS modelo_id, mo.descricao AS modelo_descricao, "
                    + "ma.id AS marca_id, ma.descricao AS marca_descricao "
-                   // Adicione JOINs para funcionario, fornecedor, hospede se precisar dos dados deles
                    + "FROM veiculo v "
                    + "JOIN modelo mo ON v.modelo_id = mo.id "
                    + "JOIN marca ma ON mo.marca_id = ma.id "

@@ -64,7 +64,7 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
             rst = pstm.executeQuery();
 
             if (rst.next()) {
-                funcionario = new Funcionario(); // Inicializa o objeto APENAS se encontrar
+                funcionario = new Funcionario();
                 funcionario.setId(rst.getInt("id"));
                 funcionario.setNome(rst.getString("nome"));
                 funcionario.setFone1(rst.getString("fone"));
@@ -152,7 +152,7 @@ public class FuncionarioDAO implements InterfaceDAO<Funcionario> {
             pstm.setString(12, objeto.getRg());
             pstm.setString(13, objeto.getObs());
             pstm.setString(14, String.valueOf(objeto.getStatus()));
-            pstm.setInt(15, objeto.getId()); // Parâmetro do WHERE
+            pstm.setInt(15, objeto.getId());
 
             pstm.executeUpdate();
 

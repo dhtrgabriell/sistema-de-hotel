@@ -30,7 +30,6 @@ public class ControllerBuscaFuncionario implements ActionListener {
             if (this.telaBuscaFuncionario.getjTableDados().getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Erro: \nNão Existem Dados Selecionados para Edição !");
             } else {
-                /////Retornar os dados para a tela de cadastro
                 ControllerCadFuncionario.codigo = (int) this.telaBuscaFuncionario.getjTableDados().
                         getValueAt(this.telaBuscaFuncionario.getjTableDados().getSelectedRow(), 0);
                 this.telaBuscaFuncionario.dispose();
@@ -41,31 +40,23 @@ public class ControllerBuscaFuncionario implements ActionListener {
             } else {
                 if (this.telaBuscaFuncionario.getjCBFiltro().getSelectedIndex() == 0) {
 
-                    // Criando objeto para receber o dado que virá do banco de dados
                     Funcionario funcionario = new Funcionario();
 
-                    //Carregando o registro do funcionario na entidade para o objeto funcionario
                     funcionario = service.FuncionarioService.Carregar(Integer.parseInt(this.telaBuscaFuncionario.getjTFFiltro().getText()));
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFuncionario.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
-                    //Adicionado o funcionario na tabela
                     tabela.addRow(new Object[]{funcionario.getId(), funcionario.getNome(), funcionario.getCpf(), funcionario.getStatus()});
 
                 } else if (this.telaBuscaFuncionario.getjCBFiltro().getSelectedIndex() == 1) {
-                    //Criando a lista para receber os funcionarios
                     List<Funcionario> listaFuncionarios = new ArrayList<>();
-                    //Carregando os funcionarios via sl para dentro da lista
                     listaFuncionarios = service.FuncionarioService.Carregar("nome", this.telaBuscaFuncionario.getjTFFiltro().getText());
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFuncionario.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
                     for (Funcionario funcionarioAtualDaLista : listaFuncionarios) {
-                        //Adicionado o funcionario na tabela
                         tabela.addRow(new Object[]{funcionarioAtualDaLista.getId(),
                             funcionarioAtualDaLista.getNome(),
                             funcionarioAtualDaLista.getCpf(),
@@ -73,17 +64,13 @@ public class ControllerBuscaFuncionario implements ActionListener {
                     }
 
                 } else if (this.telaBuscaFuncionario.getjCBFiltro().getSelectedIndex() == 2) {
-                    //Criando a lista para receber os funcionarios
                     List<Funcionario> listaFuncionarios = new ArrayList<>();
-                    //Carregando os funcionarios via sl para dentro da lista
                     listaFuncionarios = service.FuncionarioService.Carregar("cpf", this.telaBuscaFuncionario.getjTFFiltro().getText());
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFuncionario.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
                     for (Funcionario funcionarioAtualDaLista : listaFuncionarios) {
-                        //Adicionado o funcionario na tabela
                         tabela.addRow(new Object[]{funcionarioAtualDaLista.getId(),
                             funcionarioAtualDaLista.getNome(),
                             funcionarioAtualDaLista.getCpf(),

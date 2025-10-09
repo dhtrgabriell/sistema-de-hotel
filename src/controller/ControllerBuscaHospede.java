@@ -30,7 +30,6 @@ public class ControllerBuscaHospede implements ActionListener {
             if (this.telaBuscaHospede.getjTableDados().getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Erro: \nNão Existem Dados Selecionados para Edição !");
             } else {
-                /////Retornar os dados para a tela de cadastro
                 ControllerCadHospede.codigo = (int) this.telaBuscaHospede.getjTableDados().
                         getValueAt(this.telaBuscaHospede.getjTableDados().getSelectedRow(), 0);
                 this.telaBuscaHospede.dispose();
@@ -41,31 +40,23 @@ public class ControllerBuscaHospede implements ActionListener {
             } else {
                 if (this.telaBuscaHospede.getjCBFiltro().getSelectedIndex() == 0) {
 
-                    // Criando objeto para receber o dado que virá do banco de dados
                     Hospede hospede = new Hospede();
 
-                    //Carregando o registro do hospede na entidade para o objeto hospede
                     hospede = service.HospedeService.Carregar(Integer.parseInt(this.telaBuscaHospede.getjTFFiltro().getText()));
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaHospede.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
-                    //Adicionado o hospede na tabela
                     tabela.addRow(new Object[]{hospede.getId(), hospede.getNome(), hospede.getCpf(), hospede.getStatus()});
 
                 } else if (this.telaBuscaHospede.getjCBFiltro().getSelectedIndex() == 1) {
-                    //Criando a lista para receber os hospedes
                     List<Hospede> listaHospedes = new ArrayList<>();
-                    //Carregando os hospedes via sl para dentro da lista
                     listaHospedes = service.HospedeService.Carregar("nome", this.telaBuscaHospede.getjTFFiltro().getText());
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaHospede.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
                     for (Hospede hospedeAtualDaLista : listaHospedes) {
-                        //Adicionado o hospede na tabela
                         tabela.addRow(new Object[]{hospedeAtualDaLista.getId(),
                             hospedeAtualDaLista.getNome(),
                             hospedeAtualDaLista.getCpf(),
@@ -73,17 +64,13 @@ public class ControllerBuscaHospede implements ActionListener {
                     }
 
                 } else if (this.telaBuscaHospede.getjCBFiltro().getSelectedIndex() == 2) {
-                    //Criando a lista para receber os hospedes
                     List<Hospede> listaHospedes = new ArrayList<>();
-                    //Carregando os hospedes via sl para dentro da lista
                     listaHospedes = service.HospedeService.Carregar("cpf", this.telaBuscaHospede.getjTFFiltro().getText());
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaHospede.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
                     for (Hospede hospedeAtualDaLista : listaHospedes) {
-                        //Adicionado o hospede na tabela
                         tabela.addRow(new Object[]{hospedeAtualDaLista.getId(),
                             hospedeAtualDaLista.getNome(),
                             hospedeAtualDaLista.getCpf(),

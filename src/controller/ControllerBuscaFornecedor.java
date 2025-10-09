@@ -30,7 +30,6 @@ public class ControllerBuscaFornecedor implements ActionListener {
             if (this.telaBuscaFornecedor.getjTableDados().getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Erro: \nNão Existem Dados Selecionados para Edição !");
             } else {
-                /////Retornar os dados para a tela de cadastro
                 ControllerCadFornecedor.codigo = (int) this.telaBuscaFornecedor.getjTableDados().
                         getValueAt(this.telaBuscaFornecedor.getjTableDados().getSelectedRow(), 0);
                 this.telaBuscaFornecedor.dispose();
@@ -41,31 +40,23 @@ public class ControllerBuscaFornecedor implements ActionListener {
             } else {
                 if (this.telaBuscaFornecedor.getjCBFiltro().getSelectedIndex() == 0) {
 
-                    // Criando objeto para receber o dado que virá do banco de dados
                     Fornecedor fornecedor = new Fornecedor();
 
-                    //Carregando o registro do fornecedor na entidade para o objeto fornecedor
                     fornecedor = service.FornecedorService.Carregar(Integer.parseInt(this.telaBuscaFornecedor.getjTFFiltro().getText()));
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFornecedor.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
-                    //Adicionado o fornecedor na tabela
                     tabela.addRow(new Object[]{fornecedor.getId(), fornecedor.getNome(), fornecedor.getCpf(), fornecedor.getStatus()});
 
                 } else if (this.telaBuscaFornecedor.getjCBFiltro().getSelectedIndex() == 1) {
-                    //Criando a lista para receber os fornecedors
                     List<Fornecedor> listaFornecedors = new ArrayList<>();
-                    //Carregando os fornecedors via sl para dentro da lista
                     listaFornecedors = service.FornecedorService.Carregar("nome", this.telaBuscaFornecedor.getjTFFiltro().getText());
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFornecedor.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
                     for (Fornecedor fornecedorAtualDaLista : listaFornecedors) {
-                        //Adicionado o fornecedor na tabela
                         tabela.addRow(new Object[]{fornecedorAtualDaLista.getId(),
                             fornecedorAtualDaLista.getNome(),
                             fornecedorAtualDaLista.getCpf(),
@@ -73,17 +64,13 @@ public class ControllerBuscaFornecedor implements ActionListener {
                     }
 
                 } else if (this.telaBuscaFornecedor.getjCBFiltro().getSelectedIndex() == 2) {
-                    //Criando a lista para receber os fornecedors
                     List<Fornecedor> listaFornecedors = new ArrayList<>();
-                    //Carregando os fornecedors via sl para dentro da lista
                     listaFornecedors = service.FornecedorService.Carregar("cpf", this.telaBuscaFornecedor.getjTFFiltro().getText());
 
-                    //Criando um objeto tabela do tipo defaulttablemodel e atribuindo o nosso modelo de tabela a ele
                     DefaultTableModel tabela = (DefaultTableModel) this.telaBuscaFornecedor.getjTableDados().getModel();
                     tabela.setRowCount(0);
 
                     for (Fornecedor fornecedorAtualDaLista : listaFornecedors) {
-                        //Adicionado o fornecedor na tabela
                         tabela.addRow(new Object[]{fornecedorAtualDaLista.getId(),
                             fornecedorAtualDaLista.getNome(),
                             fornecedorAtualDaLista.getCpf(),

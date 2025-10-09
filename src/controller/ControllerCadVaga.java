@@ -54,7 +54,6 @@ public class ControllerCadVaga implements ActionListener {
 
                 VagaEstacionamento vaga = service.VagaEstacionamentoService.Carregar(codigo);
 
-                // Popula os campos corretos para VagaEstacionamento
                 this.telaCadastroVagaEstac.getjTextFieldDesc().setText(vaga.getDescricao());
                 this.telaCadastroVagaEstac.getjTextFieldObs().setText(vaga.getObs());
                 this.telaCadastroVagaEstac.getjTextFieldMetragem().setText(String.valueOf(vaga.getMetragemVaga()));
@@ -71,13 +70,12 @@ public class ControllerCadVaga implements ActionListener {
                 VagaEstacionamento vaga = new VagaEstacionamento();
                 vaga.setDescricao(this.telaCadastroVagaEstac.getjTextFieldDesc().getText());
                 vaga.setObs(this.telaCadastroVagaEstac.getjTextFieldObs().getText());
-                vaga.setStatus('A'); // Ou o status que vier da tela
+                vaga.setStatus('A');
 
                 try {
                     float metragem = Float.parseFloat(this.telaCadastroVagaEstac.getjTextFieldMetragem().getText());
                     vaga.setMetragemVaga(metragem);
 
-                    // Lógica de salvar só acontece se a conversão for bem-sucedida
                     if (this.telaCadastroVagaEstac.getjTextFieldID().getText().trim().isEmpty()) {
                         service.VagaEstacionamentoService.Criar(vaga);
                     } else {

@@ -34,16 +34,15 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
         ResultSet rst = null;
-        Marca marca = null; // Inicia como nulo
+        Marca marca = null;
 
         try {
             pstm = conexao.prepareStatement(sqlInstrucao);
             pstm.setInt(1, id);
             rst = pstm.executeQuery();
 
-            // CORRIGIDO: Usar 'if' para um único resultado
             if (rst.next()) {
-                marca = new Marca(); // Cria o objeto apenas se encontrar
+                marca = new Marca();
                 marca.setId(rst.getInt("id"));
                 marca.setDescricao(rst.getString("descricao"));
                 marca.setStatus(rst.getString("status").charAt(0));
@@ -96,7 +95,7 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
 
             pstm.setString(1, objeto.getDescricao());
             pstm.setString(2, String.valueOf(objeto.getStatus()));
-            pstm.setInt(3, objeto.getId()); // Parâmetro do WHERE que faltava
+            pstm.setInt(3, objeto.getId());
 
             pstm.executeUpdate();
 

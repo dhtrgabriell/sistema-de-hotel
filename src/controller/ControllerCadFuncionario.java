@@ -8,10 +8,6 @@ import javax.swing.JOptionPane;
 import model.Funcionario;
 import view.*;
 
-/**
- *
- * @author IFSC
- */
 public class ControllerCadFuncionario implements ActionListener {
 
     TelaCadastroFuncionario telaCadastroFuncionario;
@@ -54,7 +50,7 @@ public class ControllerCadFuncionario implements ActionListener {
             this.telaCadastroFuncionario.controlaCampos(false);
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonBuscar()) {
 
-            codigo = -1; // invalida a busca
+            codigo = -1;
 
             TelaBuscaFuncionario telaBuscaFuncionario = new TelaBuscaFuncionario(null, true);
             ControllerBuscaFuncionario controllerBuscaFuncionario = new ControllerBuscaFuncionario(telaBuscaFuncionario);
@@ -73,7 +69,6 @@ public class ControllerCadFuncionario implements ActionListener {
                 this.telaCadastroFuncionario.getjFormattedTextFieldCep().setText(funcionario.getCep());
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().setText(funcionario.getNome());
                 this.telaCadastroFuncionario.getjTextFieldRg().setText(funcionario.getRg());
-                // this.telaCadastroFuncionario.getjTextFieldCpf().setText(funcionario.getCpf());
 
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
             }
@@ -101,7 +96,6 @@ public class ControllerCadFuncionario implements ActionListener {
                 funcionario.setSexo(
                         this.telaCadastroFuncionario.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
                 if (this.telaCadastroFuncionario.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
-                    // inclusão
                     funcionario.setStatus('A');
                     service.FuncionarioService.Criar(funcionario);
                 } else {

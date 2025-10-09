@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package model.DAO;
 
 import java.util.List;
 
-/**
- *
- * @author aluno
- */
 public interface InterfaceDAO<T> {
    
     public abstract void Create(T objeto);

@@ -1,17 +1,10 @@
-/*
-SERVICE RESPONSÁVEL PELA LÓGICA DE NEGÓCIO DA CLASSE FORNECEDOR
-*/
 
 package service;
 
 import java.util.List;
-import model.Fornecedor;
 import model.DAO.FornecedorDAO;
+import model.Fornecedor;
 
-/**
- *
- * @author Murilo
- */
 public class FornecedorService {
 
     public static void Atualizar(Fornecedor objeto) {

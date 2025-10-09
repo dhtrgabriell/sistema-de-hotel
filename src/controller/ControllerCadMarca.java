@@ -6,10 +6,6 @@ import javax.swing.JOptionPane;
 import model.Marca;
 import view.*;
 
-/**
- *
- * @author IFSC
- */
 public class ControllerCadMarca implements ActionListener {
 
     TelaCadastroMarca telaCadastroMarca;
@@ -45,7 +41,7 @@ public class ControllerCadMarca implements ActionListener {
             utilities.Utilities.ativaDesativa(this.telaCadastroMarca.getjPanelBotoes(), true);
         } else if (e.getSource() == this.telaCadastroMarca.getjButtonBuscar()) {
 
-            codigo = -1; // invalida a busca
+            codigo = -1;
 
             TelaBuscaVaga telaBuscaMarca = new TelaBuscaVaga(null, true);
             ControllerBuscaMarca controllerBuscaMarca = new ControllerBuscaMarca(telaBuscaMarca);
@@ -71,7 +67,6 @@ public class ControllerCadMarca implements ActionListener {
                 marca.setDescricao(this.telaCadastroMarca.getjTextFieldMarca().getText());
 
                 if (this.telaCadastroMarca.getjTextFieldMarcaID().getText().trim().equalsIgnoreCase("")) {
-                    // inclusão
                     marca.setStatus('A');
                     service.MarcaService.Criar(marca);
                 } else {

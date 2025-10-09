@@ -1,7 +1,5 @@
 package model;
 
-import model.Pessoa;
-
 public class Funcionario extends Pessoa{
 
     private char sexo;

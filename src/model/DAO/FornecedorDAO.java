@@ -25,7 +25,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             pstm = conexao.prepareStatement(sqlInstrucao);
 
             pstm.setString(1, objeto.getNome());
-            pstm.setString(2, objeto.getFone()); // Verifique se é getFone1() ou getFone()
+            pstm.setString(2, objeto.getFone());
             pstm.setString(3, objeto.getFone2());
             pstm.setString(4, objeto.getEmail());
             pstm.setString(5, objeto.getCep());
@@ -69,12 +69,11 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             rst = pstm.executeQuery();
 
             if (rst.next()) {
-                fornecedor.setId(rst.getInt("id")); // Adicionado o ID
+                fornecedor.setId(rst.getInt("id"));
                 fornecedor.setNome(rst.getString("nome"));
                 fornecedor.setFone1(rst.getString("fone"));
                 fornecedor.setFone2(rst.getString("fone2"));
                 fornecedor.setEmail(rst.getString("email"));
-                // ... continue preenchendo todos os outros campos aqui
                 fornecedor.setContato(rst.getString("contato"));
             }
         } catch (SQLException ex) {
@@ -107,7 +106,6 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
                 fornecedor.setNome(rst.getString("nome"));
                 fornecedor.setRazaoSocial(rst.getString("razao_social"));
                 fornecedor.setCnpj(rst.getString("cnpj"));
-                // ... continue preenchendo todos os outros campos aqui
 
                 listaFornecedor.add(fornecedor);
             }
@@ -152,7 +150,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             pstm.setString(18, objeto.getContato());
             pstm.setInt(19, objeto.getId());
 
-            pstm.executeUpdate(); // Use executeUpdate() para INSERT, UPDATE, DELETE
+            pstm.executeUpdate();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
