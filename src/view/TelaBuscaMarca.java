@@ -48,7 +48,7 @@ public class TelaBuscaMarca extends javax.swing.JDialog {
         jButtonFiltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Projeto de Gestão Hospitalar");
+        setTitle("Busca de Marcas");
         setAlwaysOnTop(true);
         setResizable(false);
 

@@ -43,7 +43,7 @@ public class TemplateBuscas2025 extends javax.swing.JDialog {
         jButtonFiltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Projeto de Gestão Hospitalar");
+        setTitle("Template de Busca");
         setAlwaysOnTop(true);
         setResizable(false);
 
