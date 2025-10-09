@@ -47,7 +47,7 @@ public class ControllerCadMarca implements ActionListener {
 
             codigo = -1; // invalida a busca
 
-            TelaBuscaMarca telaBuscaMarca = new TelaBuscaMarca(null, true);
+            TelaBuscaVaga telaBuscaMarca = new TelaBuscaVaga(null, true);
             ControllerBuscaMarca controllerBuscaMarca = new ControllerBuscaMarca(telaBuscaMarca);
             telaBuscaMarca.setVisible(true);
 

@@ -181,13 +181,13 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //GAMBIARRA
+    // GAMBIARRA
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem2ActionPerformed
         TelaCadastroModelo telaSobre = new TelaCadastroModelo(this, true);
-            ControllerCadModelo controllerCadModelo = new ControllerCadModelo(telaSobre);
+        ControllerCadModelo controllerCadModelo = new ControllerCadModelo(telaSobre);
         telaSobre.setVisible(true);
     }// GEN-LAST:event_jMenuItem2ActionPerformed
-    
+
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemSairActionPerformed
         dispose();
     }// GEN-LAST:event_jMenuItemSairActionPerformed
@@ -234,6 +234,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemEstacionamentoActionPerformed
         // to do : sem controller
         TelaCadastroVagaEstac telaCadastroEstacionamento = new TelaCadastroVagaEstac(null, true);
+        ControllerCadVaga controllerCadVaga = new ControllerCadVaga(telaCadastroEstacionamento);
+
         telaCadastroEstacionamento.setVisible(true);
     }// GEN-LAST:event_jMenuItemEstacionamentoActionPerformed
 

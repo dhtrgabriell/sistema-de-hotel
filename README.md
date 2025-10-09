@@ -24,8 +24,8 @@ Prof Roberval
 - [ ] Cadastro Quarto
 - [ ] Busca Quarto
 
-- [ ] Cadastro Vaga
-- [ ] Busca Vaga
+- [x] Cadastro Vaga
+- [x] Busca Vaga
 
 - [x] Cadastro Veículo
 - [x] Busca Veículo

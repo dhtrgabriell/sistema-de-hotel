@@ -7,13 +7,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Marca;
-import view.TelaBuscaMarca;
+import view.TelaBuscaVaga;
 
 public class ControllerBuscaMarca implements ActionListener {
 
-    TelaBuscaMarca telaBuscaMarca;
+    TelaBuscaVaga telaBuscaMarca;
 
-    public ControllerBuscaMarca(TelaBuscaMarca telaBuscaMarca) {
+    public ControllerBuscaMarca(TelaBuscaVaga telaBuscaMarca) {
 
         this.telaBuscaMarca = telaBuscaMarca;
 
