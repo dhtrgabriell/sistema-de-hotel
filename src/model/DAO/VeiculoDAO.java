@@ -6,193 +6,162 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Fornecedor;
-import model.Funcionario;
-import model.Hospede;
+import model.Marca;
 import model.Modelo;
 import model.Veiculo;
 
-public class VeiculoDAO implements InterfaceDAO<Veiculo>{
+public class VeiculoDAO implements InterfaceDAO<Veiculo> {
 
     @Override
     public void Create(Veiculo objeto) {
-        String sqlInstrucao = "Insert into veiculo"
-                + "(placa, "
-                + "cor, "
-                + "modelo_id, "
-                + "funcionario_id, "
-                + "fornecedor_id, "
-                + "hospede_id, "
-                + "status) "
-                + "values(?, ?, ?, ?, ?, ?, ?,)";
-
+        String sql = "INSERT INTO veiculo (placa, cor, status, modelo_id, funcionario_id, fornecedor_id, hospede_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
-
         try {
-            
-            pstm = conexao.prepareStatement(sqlInstrucao);
-
+            pstm = conexao.prepareStatement(sql);
             pstm.setString(1, objeto.getPlaca());
             pstm.setString(2, objeto.getCor());
-            pstm.setString(3, String.valueOf(objeto.getModelo()));
-            pstm.setString(4, String.valueOf(objeto.getFuncionario()));
-            pstm.setString(5, String.valueOf(objeto.getFornecedor()));
-            pstm.setString(6, String.valueOf(objeto.getHospede()));
-            pstm.setString(7, String.valueOf(objeto.getStatus()));
+            pstm.setString(3, String.valueOf(objeto.getStatus()));
+            pstm.setInt(4, objeto.getModelo().getId());
+            
+            // Lógica para chaves estrangeiras que podem ser nulas
+            if (objeto.getFuncionario() != null) pstm.setInt(5, objeto.getFuncionario().getId()); else pstm.setNull(5, java.sql.Types.INTEGER);
+            if (objeto.getFornecedor() != null) pstm.setInt(6, objeto.getFornecedor().getId()); else pstm.setNull(6, java.sql.Types.INTEGER);
+            if (objeto.getHospede() != null) pstm.setInt(7, objeto.getHospede().getId()); else pstm.setNull(7, java.sql.Types.INTEGER);
 
-            pstm.executeQuery();
-
+            pstm.executeUpdate(); // CORRIGIDO
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
     }
 
     @Override
     public Veiculo Retrieve(int id) {
-        String sqlInstrucao = "Select "
-                + "id, "
-                + "placa, "
-                + "cor, "
-                + "modelo_id, "
-                + "funcionario_id, "
-                + "fornecedor_id, "
-                + "hospede_id, "
-                + "status "
-                + "from veiculo where id = ?";
-
+        // SQL com todos os JOINs necessários
+        String sql = "SELECT v.id AS veiculo_id, v.placa, v.cor, v.status AS veiculo_status, "
+                   + "mo.id AS modelo_id, mo.descricao AS modelo_descricao, "
+                   + "ma.id AS marca_id, ma.descricao AS marca_descricao "
+                   // Adicione JOINs para funcionario, fornecedor, hospede se precisar dos dados deles
+                   + "FROM veiculo v "
+                   + "JOIN modelo mo ON v.modelo_id = mo.id "
+                   + "JOIN marca ma ON mo.marca_id = ma.id "
+                   + "WHERE v.id = ?";
+        
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
         ResultSet rst = null;
-
-        Veiculo veiculo = new Veiculo();
+        Veiculo veiculo = null;
 
         try {
-
-            pstm = conexao.prepareStatement(sqlInstrucao);
+            pstm = conexao.prepareStatement(sql);
             pstm.setInt(1, id);
             rst = pstm.executeQuery();
 
-            while(rst.next()){
+            if (rst.next()) {
+                veiculo = new Veiculo();
                 Modelo modelo = new Modelo();
+                Marca marca = new Marca();
 
-                veiculo.setId(rst.getInt("id"));
+                marca.setId(rst.getInt("marca_id"));
+                marca.setDescricao(rst.getString("marca_descricao"));
+                
+                modelo.setId(rst.getInt("modelo_id"));
+                modelo.setDescricao(rst.getString("modelo_descricao"));
+                modelo.setMarca(marca);
+
+                veiculo.setId(rst.getInt("veiculo_id"));
                 veiculo.setPlaca(rst.getString("placa"));
                 veiculo.setCor(rst.getString("cor"));
-                veiculo.setModelo(null); //new Modelo(rst.getInt("modelo_id"));
-                veiculo.setFuncionario(null); //new Funcionario(rst.getInt("funcionario_id"));
-                veiculo.setFornecedor(null); //new Fornecedor(rst.getInt("fornecedor_id"));
-                veiculo.setHospede(null); //new Hospede(rst.getInt("hospede_id"));
-                veiculo.setStatus(rst.getString("status").charAt(0));
-
-                return veiculo;
-
+                veiculo.setStatus(rst.getString("veiculo_status").charAt(0));
+                veiculo.setModelo(modelo);
+                // Carregar funcionario, fornecedor, hospede se eles estiverem no SELECT
             }
-            
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return veiculo;
         }
-
+        return veiculo;
     }
 
     @Override
     public List<Veiculo> Retrieve(String atributo, String valor) {
-        String sqlInstrucao = "Select "
-                + "id, "
-                + "placa, "
-                + "cor, "
-                + "modelo_id, "
-                + "funcionario_id, "
-                + "fornecedor_id, "
-                + "hospede_id, "
-                + "status "
-                + "from veiculo where " + atributo + " like ?";
-
+        // SQL com todos os JOINs necessários
+        String sql = "SELECT v.id AS veiculo_id, v.placa, v.cor, v.status AS veiculo_status, "
+                   + "mo.id AS modelo_id, mo.descricao AS modelo_descricao, "
+                   + "ma.id AS marca_id, ma.descricao AS marca_descricao "
+                   // Adicione JOINs para funcionario, fornecedor, hospede se precisar dos dados deles
+                   + "FROM veiculo v "
+                   + "JOIN modelo mo ON v.modelo_id = mo.id "
+                   + "JOIN marca ma ON mo.marca_id = ma.id "
+                   + "WHERE " + atributo + " LIKE ?";
+        
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
         ResultSet rst = null;
-
-        List<Veiculo> veiculos = new ArrayList<>();
+        List<Veiculo> listaVeiculos = new ArrayList<>();
 
         try {
-            
-            pstm = conexao.prepareStatement(sqlInstrucao);
+            pstm = conexao.prepareStatement(sql);
             pstm.setString(1, "%" + valor + "%");
             rst = pstm.executeQuery();
 
-            while(rst.next()){
-
+            while (rst.next()) {
                 Veiculo veiculo = new Veiculo();
+                Modelo modelo = new Modelo();
+                Marca marca = new Marca();
+                
+                marca.setId(rst.getInt("marca_id"));
+                marca.setDescricao(rst.getString("marca_descricao"));
 
-                veiculo.setId(rst.getInt("id"));
+                modelo.setId(rst.getInt("modelo_id"));
+                modelo.setDescricao(rst.getString("modelo_descricao"));
+                modelo.setMarca(marca);
+
+                veiculo.setId(rst.getInt("veiculo_id"));
                 veiculo.setPlaca(rst.getString("placa"));
                 veiculo.setCor(rst.getString("cor"));
-                veiculo.setModelo(null); //new Modelo(rst.getInt("modelo_id"));
-                veiculo.setFuncionario(null); //new Funcionario(rst.getInt("funcionario_id"));
-                veiculo.setFornecedor(null); //new Fornecedor(rst.getInt("fornecedor_id"));
-                veiculo.setHospede(null); //new Hospede(rst.getInt("hospede_id"));
-                veiculo.setStatus(rst.getString("status").charAt(0));
-
-                veiculos.add(veiculo);
-
+                veiculo.setStatus(rst.getString("veiculo_status").charAt(0));
+                veiculo.setModelo(modelo);
+                
+                listaVeiculos.add(veiculo);
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
-            return veiculos;
         }
-
+        return listaVeiculos;
     }
 
     @Override
     public void Update(Veiculo objeto) {
-        String sqlInstrucao = "Update veiculo set "
-                + "placa = ?, "
-                + "cor = ?, "
-                + "modelo_id = ?, "
-                + "funcionario_id = ?, "
-                + "fornecedor_id = ?, "
-                + "hospede_id = ?, "
-                + "status = ? "
-                + "where id = ?";
-
+        String sql = "UPDATE veiculo SET placa = ?, cor = ?, status = ?, modelo_id = ?, funcionario_id = ?, fornecedor_id = ?, hospede_id = ? WHERE id = ?";
         Connection conexao = ConnectionFactory.getConnection();
         PreparedStatement pstm = null;
-
         try {
-
-            pstm = conexao.prepareStatement(sqlInstrucao);
-
+            pstm = conexao.prepareStatement(sql);
             pstm.setString(1, objeto.getPlaca());
             pstm.setString(2, objeto.getCor());
-            pstm.setString(3, String.valueOf(objeto.getModelo()));
-            pstm.setString(4, String.valueOf(objeto.getFuncionario()));
-            pstm.setString(5, String.valueOf(objeto.getFornecedor()));
-            pstm.setString(6, String.valueOf(objeto.getHospede()));
-            pstm.setString(7, String.valueOf(objeto.getStatus()));
+            pstm.setString(3, String.valueOf(objeto.getStatus()));
+            pstm.setInt(4, objeto.getModelo().getId());
+            if (objeto.getFuncionario() != null) pstm.setInt(5, objeto.getFuncionario().getId()); else pstm.setNull(5, java.sql.Types.INTEGER);
+            if (objeto.getFornecedor() != null) pstm.setInt(6, objeto.getFornecedor().getId()); else pstm.setNull(6, java.sql.Types.INTEGER);
+            if (objeto.getHospede() != null) pstm.setInt(7, objeto.getHospede().getId()); else pstm.setNull(7, java.sql.Types.INTEGER);
             pstm.setInt(8, objeto.getId());
 
             pstm.executeUpdate();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
-
     }
 
     @Override
     public void Delete(Veiculo objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
-    
-}
+}   

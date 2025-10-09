@@ -6,6 +6,7 @@
 package view;
 
 import controller.*;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -212,6 +213,7 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemVeiculoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItemVeiculoActionPerformed
         // to do : sem controller
         TelaCadastroVeiculo telaCadastroVeiculo = new TelaCadastroVeiculo(null, true);
+        ControllerCadVeiculo controllerCadVeiculo = new ControllerCadVeiculo(telaCadastroVeiculo);
         telaCadastroVeiculo.setVisible(true);
     }// GEN-LAST:event_jMenuItemVeiculoActionPerformed
 
