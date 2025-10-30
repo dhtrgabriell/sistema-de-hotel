@@ -75,15 +75,14 @@ public class ControllerCadFuncionario implements ActionListener {
             }
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
-
+            service.cpfvalidator valida = new cpfvalidator();
+            valida.verificarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText());
+            
             if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
             
-                service.cpfvalidator valida = new cpfvalidator();
 
-                valida.verificarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText());
-            
             
             
             } else {
