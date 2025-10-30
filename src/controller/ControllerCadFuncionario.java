@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Funcionario;
+import service.cpfvalidator;
 import view.*;
 
 public class ControllerCadFuncionario implements ActionListener {
@@ -78,6 +79,13 @@ public class ControllerCadFuncionario implements ActionListener {
             if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
+            
+                service.cpfvalidator valida = new cpfvalidator();
+
+                valida.verificarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText());
+            
+            
+            
             } else {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setNome(this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText());
