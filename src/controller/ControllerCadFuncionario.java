@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Funcionario;
-import service.cpfvalidator;
 import view.*;
 
 public class ControllerCadFuncionario implements ActionListener {
@@ -75,10 +74,9 @@ public class ControllerCadFuncionario implements ActionListener {
             }
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
-            service.cpfvalidator valida = new cpfvalidator();
+            service.CPFValidator valida = new service.CPFValidator();
             
-            if(!valida.verificarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText())){
-                JOptionPane.showMessageDialog(null, "O CPF Informado é Inválido.");
+            if(!valida.validarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText())){
                 this.telaCadastroFuncionario.getjFormattedTextFieldCpf().requestFocus();
             }else
             if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
