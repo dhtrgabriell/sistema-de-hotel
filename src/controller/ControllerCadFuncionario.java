@@ -76,15 +76,14 @@ public class ControllerCadFuncionario implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
             service.cpfvalidator valida = new cpfvalidator();
-            valida.verificarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText());
             
+            if(!valida.verificarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText())){
+                JOptionPane.showMessageDialog(null, "O CPF Informado é Inválido.");
+                this.telaCadastroFuncionario.getjFormattedTextFieldCpf().requestFocus();
+            }else
             if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
-            
-
-            
-            
             } else {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setNome(this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText());
