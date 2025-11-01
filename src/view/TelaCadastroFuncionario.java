@@ -155,7 +155,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
         jLabelCnpj.setText("CNPJ");
 
         try {
-            jFormattedTextFieldCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###/####-##")));
+            jFormattedTextFieldCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

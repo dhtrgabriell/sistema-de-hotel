@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.classfile.instruction.SwitchCase;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -48,12 +49,14 @@ public class ControllerCadFuncionario implements ActionListener {
             utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
             utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
             this.telaCadastroFuncionario.controlaCampos(false);
+
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonBuscar()) {
 
             codigo = -1;
 
             TelaBuscaFuncionario telaBuscaFuncionario = new TelaBuscaFuncionario(null, true);
-            ControllerBuscaFuncionario controllerBuscaFuncionario = new ControllerBuscaFuncionario(telaBuscaFuncionario);
+            ControllerBuscaFuncionario controllerBuscaFuncionario = new ControllerBuscaFuncionario(
+                    telaBuscaFuncionario);
             telaBuscaFuncionario.setVisible(true);
 
             if (codigo != -1) {
@@ -74,11 +77,46 @@ public class ControllerCadFuncionario implements ActionListener {
             }
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
-            service.CPFValidator valida = new service.CPFValidator();
-            
-            if(!valida.validarCPF(this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText())){
-                this.telaCadastroFuncionario.getjFormattedTextFieldCpf().requestFocus();
-            }else
+            ///////////// LOGICA DE VALIDAÇÃO CPF/CNPJ
+
+            String cnpjToValidate = this.telaCadastroFuncionario.getjFormattedTextFieldCnpj().getText().replaceAll("\\D", "");
+            String cpfToValidate = this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText().replaceAll("\\D","");
+            boolean cpfvalido = service.ValidarDoc.validarCPF(cpfToValidate);
+            boolean cnpjvalido = service.ValidarDoc.validarCNPJ(cnpjToValidate);
+
+            if (cnpjToValidate.isEmpty() && cpfToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario,"Preencha pelo menos um dos campos (CPF ou CNPJ).");
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cpfToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario, "Preencha somente um dos campos (CPF ou CNPJ).");
+                return;
+            }
+            if (!cpfToValidate.isEmpty() && !cpfvalido) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario, "CPF Invalido.");
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cnpjvalido) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario, "CNPJ Invalido.");
+                return;
+            }
+
+            /*
+             * if (vcnpj.isEmpty() && vcpf.isEmpty()) {
+             * JOptionPane.showMessageDialog(telaCadastroFuncionario,
+             * "Deve ser informado ao menos CPF ou CNPJ");
+             * this.telaCadastroFuncionario.getjFormattedTextFieldCpf().requestFocus();
+             * } else if (vcnpj.isEmpty() ^ vcpf.isEmpty() && vcnpj.isEmpty() &&
+             * cpfValidator.validarCPF(vcpf)) {
+             * } else if (!cnpjValidator.validarCNPJ(vcnpj)) {
+             * JOptionPane.showMessageDialog(telaCadastroFuncionario,
+             * "CNPJ Inserido é Invalido");
+             * this.telaCadastroFuncionario.getjFormattedTextFieldCnpj().requestFocus();
+             * } else {
+             * JOptionPane.showMessageDialog(telaCadastroFuncionario,
+             * "Deve ser informado somente um CPF ou um CNPJ");
+             * }
+             */
             if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
@@ -99,6 +137,7 @@ public class ControllerCadFuncionario implements ActionListener {
                 funcionario.setRg(this.telaCadastroFuncionario.getjTextFieldRg().getText());
                 funcionario.setSexo(
                         this.telaCadastroFuncionario.getjComboBoxSexo().getSelectedItem().toString().charAt(0));
+
                 if (this.telaCadastroFuncionario.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                     funcionario.setStatus('A');
                     service.FuncionarioService.Criar(funcionario);
@@ -106,7 +145,7 @@ public class ControllerCadFuncionario implements ActionListener {
                     funcionario.setId(Integer.parseInt(this.telaCadastroFuncionario.getjTextFieldId().getText()));
                     service.FuncionarioService.Atualizar(funcionario);
                 }
-                
+
                 utilities.Utilities.ativaDesativa(this.telaCadastroFuncionario.getjPanelBotoes(), true);
                 utilities.Utilities.limpaComponentes(this.telaCadastroFuncionario.getjPanelDados(), false);
             }
