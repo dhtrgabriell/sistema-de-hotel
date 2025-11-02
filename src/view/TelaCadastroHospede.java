@@ -22,6 +22,7 @@ public class TelaCadastroHospede extends javax.swing.JDialog {
      */
     public TelaCadastroHospede(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel.png")).getImage());
         initComponents();
     }
 
@@ -316,7 +317,7 @@ public class TelaCadastroHospede extends javax.swing.JDialog {
         jLabelCnpj.setText("CNPJ");
 
         try {
-            jFormattedTextFieldCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###.###/####-##")));
+            jFormattedTextFieldCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

@@ -2,6 +2,8 @@ package model.DAO;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 public class ConnectionFactory {
 
     private static final String driver = "com.mysql.jbdc.Driver";
@@ -17,6 +19,11 @@ public class ConnectionFactory {
                     + "&USER=" + usuario + "&password=" + senha + "&serverTimezone=UTC");
         } catch (SQLException ex) {
             ex.printStackTrace();
+
+            JOptionPane.showMessageDialog(
+            null,"Erro ao conectar com o banco de dados. \n"+ ex,
+            "Erro", JOptionPane.ERROR_MESSAGE
+        );
             return null;
         }
     }

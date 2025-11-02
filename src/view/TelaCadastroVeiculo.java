@@ -21,6 +21,7 @@ public class TelaCadastroVeiculo extends javax.swing.JDialog {
      */
     public TelaCadastroVeiculo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel.png")).getImage());
         initComponents();
     }
     

@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `Hotel`.`marca` (
   `descricao` VARCHAR(100)  ,
   `status` VARCHAR(1)  ,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB; 
 
 
 -- -----------------------------------------------------
@@ -175,8 +175,8 @@ DROP TABLE IF EXISTS `Hotel`.`modelo` ;
 CREATE TABLE IF NOT EXISTS `Hotel`.`modelo` (
   `id` INT   AUTO_INCREMENT,
   `descricao` VARCHAR(100)  ,
-  `status` VARCHAR(1)  ,
-  `marca_id` INT  ,
+  `status` VARCHAR(1),
+  `marca_id` INT,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_modelo_marca1`
     FOREIGN KEY (`marca_id`)
@@ -195,7 +195,8 @@ DROP TABLE IF EXISTS `Hotel`.`funcionario` ;
 
 CREATE TABLE IF NOT EXISTS `Hotel`.`funcionario` (
   `id` INT   AUTO_INCREMENT,
-  `nome` VARCHAR(100)  ,
+  `nome` VARCHAR(100),
+  `sexo` VARCHAR(10) CHECK (`sexo` IN ('FEMININO', 'MASCULINO')) ,
   `fone` VARCHAR(16)  ,
   `fone2` VARCHAR(16)  ,
   `email` VARCHAR(100)  ,
@@ -223,8 +224,8 @@ DROP TABLE IF EXISTS `Hotel`.`fornecedor` ;
 CREATE TABLE IF NOT EXISTS `Hotel`.`fornecedor` (
   `id` INT   AUTO_INCREMENT,
   `nome` VARCHAR(100)  ,
-   `fone` VARCHAR(16)  ,
-   `fone2` VARCHAR(16)  ,
+  `fone` VARCHAR(16)  ,
+  `fone2` VARCHAR(16)  ,
   `email` VARCHAR(100)  ,
   `cep` VARCHAR(10)  ,
   `logradouro` VARCHAR(100)  ,
@@ -254,8 +255,9 @@ DROP TABLE IF EXISTS `Hotel`.`hospede` ;
 CREATE TABLE IF NOT EXISTS `Hotel`.`hospede` (
   `id` INT   AUTO_INCREMENT,
   `nome` VARCHAR(100)  ,
-   `fone` VARCHAR(16)  ,
-   `fone2` VARCHAR(16)  ,
+  `sexo` VARCHAR(10) CHECK (`sexo` IN ('FEMININO', 'MASCULINO')),
+  `fone` VARCHAR(16)  ,
+  `fone2` VARCHAR(16)  ,
   `email` VARCHAR(100)  ,
   `cep` VARCHAR(10)  ,
   `logradouro` VARCHAR(100)  ,

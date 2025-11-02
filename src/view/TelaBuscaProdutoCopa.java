@@ -23,6 +23,7 @@ public class TelaBuscaProdutoCopa extends javax.swing.JDialog {
      */
     public TelaBuscaProdutoCopa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel.png")).getImage());
         initComponents();
     }
     

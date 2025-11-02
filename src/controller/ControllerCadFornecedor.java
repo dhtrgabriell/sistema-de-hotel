@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.print.CancelablePrintJob;
 import javax.swing.JOptionPane;
 import model.Fornecedor;
 import view.*;
@@ -35,12 +37,16 @@ public class ControllerCadFornecedor implements ActionListener {
 
             this.telaCadastroFornecedor.controlaCampos(true);
             this.telaCadastroFornecedor.getjTextFieldId().setEnabled(false);
+            this.telaCadastroFornecedor.getjFormattedTextFieldCpf().setEnabled(false);
+            this.telaCadastroFornecedor.getjTextFieldRg().setEnabled(false);
+            this.telaCadastroFornecedor.getjComboBoxSexo().setEnabled(false);
 
             Date dataAtual = new Date();
             SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
             String novaData = dataFormatada.format(dataAtual);
             this.telaCadastroFornecedor.getjFormattedTextDataCad().setText(novaData);
             this.telaCadastroFornecedor.getjFormattedTextDataCad().setEnabled(false);
+            
 
             this.telaCadastroFornecedor.getjTextFieldNomeFantasia().requestFocus();
 
@@ -52,8 +58,7 @@ public class ControllerCadFornecedor implements ActionListener {
 
             codigo = -1;
 
-            TelaBuscaFornecedor telaBuscaFornecedor = new TelaBuscaFornecedor
-            (null, true);
+            TelaBuscaFornecedor telaBuscaFornecedor = new TelaBuscaFornecedor(null, true);
             ControllerBuscaFornecedor controllerBuscaFornecedor = new ControllerBuscaFornecedor(telaBuscaFornecedor);
             telaBuscaFornecedor.setVisible(true);
 
@@ -76,6 +81,22 @@ public class ControllerCadFornecedor implements ActionListener {
 
         } else if (e.getSource() == this.telaCadastroFornecedor.getjButtonGravar()) {
 
+            ///////////// LOGICA DE VALIDAÇÃO CPF/CNPJ
+
+            String cnpjToValidate = this.telaCadastroFornecedor.getjFormattedTextFieldCnpj().getText().replaceAll("\\D",
+                    "");
+            boolean cnpjvalido = service.ValidarDoc.validarCNPJ(cnpjToValidate);
+
+
+            if (cnpjToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroFornecedor, "Campo CPNJ é obrigatório.");
+                this.telaCadastroFornecedor.getjFormattedTextFieldCnpj().requestFocus();
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cnpjvalido) {
+                JOptionPane.showMessageDialog(telaCadastroFornecedor, "CNPJ Invalido.");
+                return;
+            }
             if (this.telaCadastroFornecedor.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFornecedor.getjTextFieldNomeFantasia().requestFocus();

@@ -20,6 +20,7 @@ public class TelaCadastroMarca extends javax.swing.JDialog {
      */
     public TelaCadastroMarca(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel.png")).getImage());
         initComponents();
     }
     

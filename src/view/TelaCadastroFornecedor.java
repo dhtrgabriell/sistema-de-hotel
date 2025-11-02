@@ -19,7 +19,9 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
      */
     public TelaCadastroFornecedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel.png")).getImage());
         initComponents();
+
     }
 
     public JButton getjButtonBuscar() {
@@ -55,7 +57,7 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
         jTextFieldId.setEnabled(ativa);
         jTextFieldNomeFantasia.setEnabled(ativa);
         jTextFieldRg.setEnabled(ativa);
-        jFormattedTextFieldCpf.setEnabled(ativa);
+       // jFormattedTextFieldCpf.setEnabled(ativa);
         jComboBoxSexo.setEnabled(ativa);
         jFormattedTextFieldFone1.setEnabled(ativa);
         jFormattedTextFieldFone2.setEnabled(ativa);
@@ -243,7 +245,7 @@ public class TelaCadastroFornecedor extends javax.swing.JDialog {
 
         try {
             jFormattedTextFieldCnpj.setFormatterFactory(
-                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###.###/####-##")));
+                    new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

@@ -77,29 +77,6 @@ public class ControllerCadFuncionario implements ActionListener {
             }
 
         } else if (e.getSource() == this.telaCadastroFuncionario.getjButtonGravar()) {
-            ///////////// LOGICA DE VALIDAÇÃO CPF/CNPJ
-
-            String cnpjToValidate = this.telaCadastroFuncionario.getjFormattedTextFieldCnpj().getText().replaceAll("\\D", "");
-            String cpfToValidate = this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText().replaceAll("\\D","");
-            boolean cpfvalido = service.ValidarDoc.validarCPF(cpfToValidate);
-            boolean cnpjvalido = service.ValidarDoc.validarCNPJ(cnpjToValidate);
-
-            if (cnpjToValidate.isEmpty() && cpfToValidate.isEmpty()) {
-                JOptionPane.showMessageDialog(telaCadastroFuncionario,"Preencha pelo menos um dos campos (CPF ou CNPJ).");
-                return;
-            }
-            if (!cnpjToValidate.isEmpty() && !cpfToValidate.isEmpty()) {
-                JOptionPane.showMessageDialog(telaCadastroFuncionario, "Preencha somente um dos campos (CPF ou CNPJ).");
-                return;
-            }
-            if (!cpfToValidate.isEmpty() && !cpfvalido) {
-                JOptionPane.showMessageDialog(telaCadastroFuncionario, "CPF Invalido.");
-                return;
-            }
-            if (!cnpjToValidate.isEmpty() && !cnpjvalido) {
-                JOptionPane.showMessageDialog(telaCadastroFuncionario, "CNPJ Invalido.");
-                return;
-            }
 
             /*
              * if (vcnpj.isEmpty() && vcpf.isEmpty()) {
@@ -117,9 +94,37 @@ public class ControllerCadFuncionario implements ActionListener {
              * "Deve ser informado somente um CPF ou um CNPJ");
              * }
              */
+
+            ///////////// LOGICA DE VALIDAÇÃO CPF/CNPJ
+
+            String cnpjToValidate = this.telaCadastroFuncionario.getjFormattedTextFieldCnpj().getText()
+                    .replaceAll("\\D", "");
+            String cpfToValidate = this.telaCadastroFuncionario.getjFormattedTextFieldCpf().getText().replaceAll("\\D",
+                    "");
+            boolean cpfvalido = service.ValidarDoc.validarCPF(cpfToValidate);
+            boolean cnpjvalido = service.ValidarDoc.validarCNPJ(cnpjToValidate);
+
+            if (cnpjToValidate.isEmpty() && cpfToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario,
+                        "Preencha pelo menos um dos campos (CPF ou CNPJ).");
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cpfToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario, "Preencha somente um dos campos (CPF ou CNPJ).");
+                return;
+            }
+            if (!cpfToValidate.isEmpty() && !cpfvalido) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario, "CPF Invalido.");
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cnpjvalido) {
+                JOptionPane.showMessageDialog(telaCadastroFuncionario, "CNPJ Invalido.");
+                return;
+            }
             if (this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
                 this.telaCadastroFuncionario.getjTextFieldNomeFantasia().requestFocus();
+
             } else {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setNome(this.telaCadastroFuncionario.getjTextFieldNomeFantasia().getText());

@@ -20,6 +20,8 @@ public class TelaMenuPrincipal extends javax.swing.JFrame {
     public TelaMenuPrincipal() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/hotel.png")).getImage());
+
     }
 
     /**

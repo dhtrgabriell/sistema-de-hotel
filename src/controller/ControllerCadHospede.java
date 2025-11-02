@@ -46,6 +46,29 @@ public class ControllerCadHospede implements ActionListener {
             utilities.Utilities.ativaDesativa(this.telaCadastroHospede.getjPanelBotoes(), true);
             utilities.Utilities.limpaComponentes(this.telaCadastroHospede.getjPanelDados(), false);
         } else if (evento.getSource() == this.telaCadastroHospede.getjButtonGravar()) {
+            ///////////// LOGICA DE VALIDAÇÃO CPF/CNPJ
+
+            String cnpjToValidate = this.telaCadastroHospede.getjFormattedTextFieldCnpj().getText().replaceAll("\\D", "");
+            String cpfToValidate = this.telaCadastroHospede.getjFormattedTextFieldCpf().getText().replaceAll("\\D","");
+            boolean cpfvalido = service.ValidarDoc.validarCPF(cpfToValidate);
+            boolean cnpjvalido = service.ValidarDoc.validarCNPJ(cnpjToValidate);
+
+            if (cnpjToValidate.isEmpty() && cpfToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroHospede,"Preencha pelo menos um dos campos (CPF ou CNPJ).");
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cpfToValidate.isEmpty()) {
+                JOptionPane.showMessageDialog(telaCadastroHospede, "Preencha somente um dos campos (CPF ou CNPJ).");
+                return;
+            }
+            if (!cpfToValidate.isEmpty() && !cpfvalido) {
+                JOptionPane.showMessageDialog(telaCadastroHospede, "CPF Invalido.");
+                return;
+            }
+            if (!cnpjToValidate.isEmpty() && !cnpjvalido) {
+                JOptionPane.showMessageDialog(telaCadastroHospede, "CNPJ Invalido.");
+                return;
+            }
 
             if (this.telaCadastroHospede.getjTextFieldNomeFantasia().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "O Atributo Nome é Obrigatório....");
